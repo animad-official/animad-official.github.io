@@ -21,7 +21,7 @@ function viewport() {
 }
 function unavailable() {
   entryStatus.hidden=false;
-  entryStatus.textContent='このブラウザーでは参加受付を表示できませんでした。ここではまだ送信を開始していません。CookieやGoogleのアクセス制限で読み込めない場合があります。このページを通常のブラウザーで開くか、再試行してください。';
+  entryStatus.textContent='参加受付の読み込みが完了しませんでした。現在、受付の通信を確認できていません。「受付の表示を再試行」から再読み込みしてください。';
   retryButton.hidden=false;
   if(frame)frame.style.visibility='hidden';
 }
@@ -36,7 +36,7 @@ function openFrame() {
   frame.style.cssText='display:block;width:100%;height:800px;border:0;visibility:hidden;scroll-margin-top:16px';
   frameSlot.replaceChildren(frame);entryStatus.hidden=false;retryButton.hidden=true;
   entryStatus.textContent='参加受付を読み込んでいます…';
-  readyTimer=setTimeout(unavailable,22000);frame.src=url.href;
+  readyTimer=setTimeout(unavailable,55000);frame.src=url.href;
 }
 window.addEventListener('message',event=>{
   const message=event.data;
