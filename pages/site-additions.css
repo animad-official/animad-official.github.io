@@ -214,3 +214,17 @@
   .genre-ticker .genre-ticker-mobile{display:flex;flex-direction:column;align-items:center;gap:0;line-height:1.45}
   .genre-ticker .genre-ticker-mobile span{display:block;white-space:nowrap;font-size:clamp(9px,2.46vw,11px);font-weight:950;letter-spacing:-.035em;line-height:1.45}
 }
+
+/* Compact shisha price jump immediately above champagne reservation. */
+.shisha-price-jump{
+ display:flex;align-items:center;justify-content:space-between;gap:12px;
+ width:100%;margin-top:19px;padding:10px 15px;min-height:47px;
+ border:1px solid #343841;border-radius:6px;background:#17191d;
+ color:#d6dce3;font-size:13px;line-height:1.5;
+}
+.shisha-price-jump:hover{border-color:#21b6d0;background:#19222a;color:#fff}
+.shisha-price-jump-label{font-weight:720}
+.shisha-price-jump-label strong{font-weight:900;color:#f8faff;margin-left:8px;font-size:14px}
+.shisha-price-jump-guide{color:#8cdfee;white-space:nowrap;font-size:11px;font-weight:780}
+.shisha-price-jump:focus-visible{outline:2px solid var(--acid);outline-offset:3px}
+@media(max-width:720px){.shisha-price-jump{padding:9px 12px;min-height:44px;font-size:12px}.shisha-price-jump-label strong{font-size:13px}.shisha-price-jump-guide{font-size:10px}}
