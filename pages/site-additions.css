@@ -58,3 +58,83 @@
 @media(prefers-reduced-motion:reduce){.menu-image-button{transition:none}}
 /* The base stylesheet hides the second header link on mobile; keep the price link visible. */
 @media(max-width:720px){.site-header nav>a:nth-child(2){display:inline-flex}}
+
+
+/* === ANIMAD 2026: cleaner event-first header + single lightning symbol === */
+.site-header{justify-content:flex-end;min-height:76px;height:auto;padding-block:16px}
+.site-header nav{width:100%;justify-content:flex-end;gap:clamp(10px,1.8vw,22px)}
+.site-header nav a{display:inline-flex;align-items:center}
+.site-header nav .nav-menu-link{color:#c6c8d0}
+.site-header nav .nav-menu-link:hover{color:var(--acid)}
+.hero .hero-kicker{font-size:clamp(20px,3vw,35px);font-weight:850;line-height:1.55;letter-spacing:.008em;margin-top:28px;max-width:90%;}
+.hero .hero-kicker span{color:var(--acid)}
+.hero .hero-art{pointer-events:none;z-index:0}
+.hero-art .hero-bolt{position:absolute;right:12px;top:34px;font-size:clamp(50px,8vw,102px);line-height:1;transform:none;text-shadow:none;filter:none;color:#21d8ed;opacity:.8}
+.hero .hero-art .orb,.hero .hero-art .cross{display:none!important}
+.event-overview .section-intro>p{display:none}
+.event-overview .overview-grid{margin-top:22px}
+.extra-menu .extra-menu-lead{display:none}
+.extra-menu .shisha-compact{margin-top:22px}
+/* Champagne is an optional reservation CTA in the entry section, not a ticket purchase. */
+.champagne-reservation{margin-top:23px;padding:20px 23px;background:#17191e;border:1px solid #3b4149;border-radius:8px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.champagne-reservation h3{font-size:18px;letter-spacing:.01em}
+.champagne-reservation .section-tag{margin-bottom:3px;color:#aa8aff}
+.champagne-reservation-button{display:inline-flex;align-items:center;justify-content:space-between;gap:26px;background:#27202f;border:1px solid #7452a2;color:#fff;padding:12px 17px;border-radius:6px;font-size:13px;font-weight:800;min-height:44px;white-space:normal}
+.champagne-reservation-button:hover{border-color:#bba2ff;color:#fff;background:#382743}
+.champagne-reservation-button span{color:#d1b1ff}
+/* Event photography: hidden until the actual uploaded photo is available. */
+.event-photo-section{padding-block:18px 35px}
+.event-photo-section[hidden]{display:none!important}
+.event-photo-frame{margin:0;position:relative;overflow:hidden;border-radius:8px;background:#15151b;border:1px solid #333844;aspect-ratio:2.2;max-height:420px}
+.event-photo-frame:after{content:'';pointer-events:none;position:absolute;inset:0;background:linear-gradient(0deg,rgba(5,12,16,.75),transparent 40%);}
+.event-photo-frame img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 45%}
+.event-photo-frame figcaption{position:absolute;z-index:1;bottom:16px;left:20px;font-size:11px;color:#eefaff;font-weight:800;letter-spacing:.22em;text-shadow:0 2px 5px #000}
+@media(max-width:720px){
+ .site-header{padding-top:12px;padding-bottom:12px;min-height:64px}
+ .site-header nav{justify-content:center;gap:8px 12px}
+ .site-header nav a,.site-header nav .nav-menu-link{font-size:11px}
+ .site-header nav>a:nth-child(3){display:inline-flex}
+ .site-header nav .nav-join{padding:7px 10px}
+ .hero .hero-kicker{font-size:clamp(19px,5.3vw,26px);line-height:1.48;max-width:90%;margin-top:20px}
+ .hero-art .hero-bolt{right:0;top:35px;font-size:55px;opacity:.45}
+ .champagne-reservation{padding:17px;gap:12px}
+ .champagne-reservation-button{width:100%;min-height:48px}
+ .event-photo-frame{aspect-ratio:1.4;max-height:350px}
+ .event-photo-frame figcaption{bottom:12px;left:13px;font-size:9px}
+}
+@media(max-width:370px){.site-header nav{gap:8px 10px}.site-header nav>a:first-child{display:inline-flex}}
+
+
+/* EVENT PHOTO: atmospheric, deliberately faint collage behind the hero only.
+   The photo is a background treatment, not a separate gallery/section. */
+.hero{isolation:isolate;position:relative}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  background-image:url('./assets/event/event-scene.jpg');
+  background-size:cover;
+  background-position:center 47%;
+  background-repeat:no-repeat;
+  opacity:.17;
+  filter:saturate(1.05) blur(.6px);
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.64) 26%,#000 65%,rgba(0,0,0,.83) 100%);
+  mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.64) 26%,#000 65%,rgba(0,0,0,.83) 100%);
+}
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  background:linear-gradient(180deg,rgba(15,15,17,.42) 0%,transparent 20%,transparent 68%,var(--bg) 100%);
+}
+.hero>.hero-top,.hero>.hero-kicker,.hero>h1,.hero>.hero-schedule,.hero>.hero-action-row{position:relative;z-index:2}
+@media(max-width:720px){
+  .hero::before{opacity:.13;background-position:55% center;
+    -webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.5),#000 32%,rgba(0,0,0,.55) 90%,transparent);
+    mask-image:linear-gradient(180deg,rgba(0,0,0,.5),#000 32%,rgba(0,0,0,.55) 90%,transparent)}
+  .hero::after{background:linear-gradient(180deg,rgba(15,15,17,.45),transparent 24%,transparent 65%,var(--bg))}
+}
