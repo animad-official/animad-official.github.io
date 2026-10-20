@@ -1,0 +1,60 @@
+
+/* Event-first single-page navigation and menus. Original theme stays intact. */
+#details,#price,#lineup,#rules,#join,#menu{scroll-margin-top:28px}
+.site-header nav{gap:20px;flex-wrap:wrap;justify-content:end}
+.site-header nav a{white-space:nowrap}
+.hero-event-tag{display:inline-block;background:#19d3ef14;border-left:3px solid var(--acid);padding:7px 15px;color:#f5f5ef!important;font-size:clamp(14px,2.4vw,19px)!important;font-weight:800;letter-spacing:.08em;line-height:1.5!important}
+.hero-action-row{position:relative;z-index:2;display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:26px}
+.hero-main-action,.hero-sub-action{display:inline-flex;align-items:center;justify-content:space-between;gap:42px;padding:14px 22px;border:1px solid var(--acid);border-radius:6px;font-weight:800;font-size:14px;min-height:51px}
+.hero-main-action{background:var(--acid);color:#0a1015}.hero-main-action:hover{color:#0a1015;background:#70e6f5}
+.hero-sub-action{border-color:#5b5b63;background:#202025;color:#e5e5e9}.hero-sub-action:hover{border-color:var(--acid)}
+.jump-nav{display:flex;gap:9px;align-items:center;flex-wrap:wrap;padding-top:20px;padding-bottom:23px;border-bottom:1px solid #34343b}
+.jump-caption{font-size:10px;color:#a8a8b1;font-weight:800;letter-spacing:.1em;margin-right:6px}
+.jump-nav a{border:1px solid #46464c;border-radius:5px;padding:8px 13px;font-weight:700;font-size:12px;min-height:38px;display:inline-flex;align-items:center;gap:12px;color:#e4e4e8;background:#19191c}
+.jump-nav a span{color:var(--acid)}.jump-nav a:hover{border-color:var(--acid);color:var(--acid)}.jump-nav a.jump-emphasis{background:#15323b;border-color:#2b8797;color:#c3f6ff}
+.section-tag{display:block;color:var(--acid);font-size:10px;font-weight:800;letter-spacing:.17em;margin-bottom:8px}
+.section-intro>p{color:#bdbdc5;font-size:15px;line-height:1.9;margin-top:15px}.event-overview{padding-bottom:56px}
+.overview-grid{display:grid;grid-template-columns:1fr 1fr 1.5fr;gap:13px;margin-top:28px}
+.overview-grid>div{border:1px solid #34343b;background:#1d1d20;padding:22px 20px;border-radius:7px;min-width:0}
+.overview-grid>div>span{display:block;color:#a9a9b0;font-size:11px;margin-bottom:12px}
+.overview-grid strong{display:block;font-size:clamp(16px,2vw,22px);font-weight:800;line-height:1.5}
+.overview-venue strong{font-size:17px}
+.overview-grid small{display:block;color:#a9a9b0;font-size:11px;line-height:1.7;margin-top:6px}
+.overview-grid a{display:inline-block;margin-top:13px;font-size:12px;color:var(--acid);text-decoration:underline;text-underline-offset:3px}
+.event-prices{padding-top:38px;padding-bottom:76px}
+.price-lead{color:#bdbdc5;font-size:13px;margin-top:10px}
+.entry-price-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;margin-top:25px}
+.entry-price-card{background:#1c1c20;border:1px solid #45454b;border-radius:8px;padding:23px 25px;display:flex;flex-direction:column;min-height:210px}
+.entry-price-card.featured{background:linear-gradient(135deg,#104451,#132833 70%);border-color:#21a9c3}
+.price-label{font-size:15px;font-weight:800}.price-value{font-size:clamp(35px,5vw,58px);letter-spacing:-.05em;line-height:1.2;margin-top:15px}.featured .price-value{color:#66e4fa}
+.price-action{margin-top:auto;display:inline-flex;align-items:center;justify-content:space-between;width:fit-content;gap:38px;padding-top:16px;font-weight:800;color:#a2f4ff;font-size:13px}.price-action:hover{color:white}
+.price-secondary-note{font-size:12px;color:#aeb0b6;margin-top:auto;padding-top:16px}
+.event-rules{scroll-margin-top:28px}
+.extra-menu{border-top:1px solid var(--line);background:var(--bg)}
+.extra-menu-lead{color:#b3b3ba;line-height:1.8;font-size:12px;margin-top:10px;max-width:740px}
+.shisha-compact{margin-top:25px;border:1px solid #37373d;background:#1a1a1d;border-radius:7px;padding:21px 23px;max-width:770px}
+.shisha-compact-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-bottom:9px;border-bottom:1px solid #393940}
+.shisha-compact-head h3{font-size:17px}.shisha-compact-head span{font-size:9px;letter-spacing:.12em;color:#a9a9b4}
+.shisha-compact dl{margin:4px 0 0}.shisha-compact dl>div{display:flex;align-items:center;justify-content:space-between;gap:15px;padding-block:9px;border-bottom:1px solid #29292f}
+.shisha-compact dl>div:last-child{border:0;padding-bottom:0}.shisha-compact dt{font-size:13px;color:#c9c9d1}.shisha-compact dd{margin:0;font-size:16px;font-weight:800;white-space:nowrap}
+.gallery-block{margin-top:40px}.gallery-head{display:flex;align-items:baseline;justify-content:space-between;gap:15px;margin-bottom:14px}.gallery-head h3{font-size:20px}.gallery-head span{color:#b4b4bd;font-size:11px}
+.menu-gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.menu-gallery.food-gallery{grid-template-columns:repeat(2,minmax(0,1fr));max-width:500px}
+.menu-image-button{min-width:0;text-align:left;display:flex;flex-direction:column;border:1px solid #494951;border-radius:8px;padding:7px;background:#1c1c20;color:#ececf0;overflow:hidden}
+.menu-image-button:hover{border-color:var(--acid);transform:translateY(-2px)}
+.menu-image-button:focus-visible{outline-color:var(--acid)}
+.menu-image-button img{display:block;object-fit:contain;object-position:top center;width:100%;height:255px;background:#1c1c1e;border-radius:5px}
+.menu-image-button>span{font-size:12px;font-weight:700;display:flex;justify-content:space-between;gap:8px;padding:12px 8px 5px;line-height:1.35}
+.menu-image-button>span span{color:var(--acid)}.menu-note{margin-top:32px;font-size:11px;color:#9899a4}
+.menu-lightbox{background:#17171b;color:#fff;border:1px solid #54545a;border-radius:10px;padding:0;max-width:min(95vw,1040px);max-height:94vh;box-shadow:0 24px 70px #000c;width:fit-content}
+.menu-lightbox::backdrop{background:rgba(0,0,0,.88)}
+.lightbox-head{position:sticky;top:0;z-index:1;background:#17171b;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:9px 15px;border-bottom:1px solid #34343b}
+.lightbox-head p{font-size:12px;font-weight:700}.lightbox-close{padding:6px 12px;border:1px solid #62626b;border-radius:5px;background:#28282d;font-size:12px;white-space:nowrap}
+.lightbox-close:hover{border-color:var(--acid)}.lightbox-content{overflow:auto;max-height:calc(94vh - 56px);text-align:center}
+.lightbox-content img{display:block;max-width:100%;width:auto;height:auto;max-height:none;margin:0 auto}
+@media(max-width:850px){.overview-grid{grid-template-columns:1fr 1fr}.overview-venue{grid-column:1/-1}.menu-gallery{grid-template-columns:repeat(3,minmax(0,1fr))}.menu-image-button img{height:230px}}
+@media(max-width:720px){.site-header nav{gap:10px}.site-header nav a{font-size:10px}.site-header nav>a:nth-child(3){display:none}.site-header nav .nav-join{padding:8px 10px}.hero-event-tag{font-size:14px!important}.hero-action-row{gap:9px;margin-top:18px}.hero-main-action,.hero-sub-action{min-height:48px;font-size:12px;gap:14px;padding:12px 14px}.jump-nav{gap:8px;padding-top:17px;padding-bottom:18px}.jump-caption{display:none}.jump-nav a{font-size:11px;padding:7px 10px;min-height:34px;gap:5px}.section-intro>p{font-size:13px}.overview-grid{grid-template-columns:1fr 1fr;gap:10px}.overview-grid>div{padding:15px}.overview-grid strong{font-size:15px}.overview-venue{grid-column:1/-1}.event-overview{padding-bottom:35px}.event-prices{padding-top:30px;padding-bottom:48px}.entry-price-grid{gap:10px}.entry-price-card{padding:17px 13px;min-height:174px}.price-label{font-size:12px}.price-value{font-size:33px}.price-action{font-size:11px;gap:8px}.gallery-block{margin-top:32px}.gallery-head h3{font-size:17px}.gallery-head span{font-size:10px}.menu-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.menu-image-button img{height:195px}.menu-gallery.food-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.menu-image-button>span{font-size:10px;padding:9px 5px 5px}.shisha-compact{padding:16px}.shisha-compact-head h3{font-size:16px}}
+@media(max-width:370px){.site-header nav>a:first-child{display:none}.entry-price-card{padding:13px 11px}.price-value{font-size:28px}.menu-image-button img{height:165px}}
+@media(prefers-reduced-motion:reduce){.menu-image-button{transition:none}}
+/* The base stylesheet hides the second header link on mobile; keep the price link visible. */
+@media(max-width:720px){.site-header nav>a:nth-child(2){display:inline-flex}}
