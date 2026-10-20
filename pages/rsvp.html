@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0d0f13">
+  <meta name="description" content="ANIMAD Vol.9 参加表明 — 参加する・興味ありの登録、一覧、編集">
+  <title>参加表明 | ANIMAD Vol.9</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./rsvp.css">
+  <script defer src="./rsvp-config.js"></script>
+  <script defer src="./rsvp.js"></script>
+</head>
+<body>
+  <header class="rsvp-header">
+    <a href="./" class="back-link" aria-label="イベントページへ戻る">← <span>イベント詳細へ戻る</span></a>
+    <span class="header-wordmark">ANIMAD <small>VOL.9</small></span>
+  </header>
+  <main class="container" id="main">
+    <div class="intro">
+      <span class="eyebrow">DEC 05, 2026 · SHIBUYA</span>
+      <h1>参加表明</h1>
+      <p>参加表明すると入場料金がお得になります！</p>
+      <div class="prices"><div class="price selected"><span>参加表明あり</span><strong>¥2,500</strong></div><div class="price"><span>参加表明なし</span><strong>¥3,000</strong></div></div>
+    </div>
+    <div class="section-links"><a href="#register">参加表明する ↓</a><a href="#attendees">参加者一覧 ↓</a></div>
+    <p id="connection-status" class="message" role="status">受付システムを確認しています…</p>
+    <section class="panel" id="register" aria-labelledby="register-title">
+      <div class="section-heading"><span class="eyebrow">REGISTRATION</span><h2 id="register-title">参加表明する</h2></div>
+      <form id="register-form" novalidate>
+        <fieldset class="status-choice">
+          <legend>参加区分 <em>必須</em></legend>
+          <div class="segment">
+            <label><input checked name="status" type="radio" value="going"><span>↗ 参加する</span></label>
+            <label><input name="status" type="radio" value="interested"><span>◇ 興味あり</span></label>
+          </div>
+        </fieldset>
+        <label class="field">名前 <em>必須</em><input name="name" maxlength="40" required placeholder="ニックネーム" autocomplete="nickname"></label>
+        <label class="field">編集用パス（数字4桁） <em>必須</em><input name="pin" required type="password" maxlength="4" minlength="4" inputmode="numeric" pattern="[0-9]{4}" autocomplete="new-password" placeholder="半角数字4桁"></label>
+        <p class="help">後から登録内容を変更するときに使います。忘れないようにしてください。</p>
+        <div class="field-pair"><label class="field">X ID <small>任意</small><input name="x" maxlength="16" autocapitalize="off" spellcheck="false" placeholder="@your_id"></label><label class="field">Instagram ID <small>任意</small><input name="instagram" maxlength="31" autocapitalize="off" spellcheck="false" placeholder="@your_id"></label></div>
+        <label class="field">ひとこと <small>任意（120文字以内）</small><textarea name="comment" maxlength="120" rows="3" placeholder="当日の意気込みなど"></textarea></label>
+        <p id="register-message" class="message" role="status" hidden></p>
+        <button id="register-submit" class="primary-button" type="submit" disabled>参加表明を送信 <span>↗</span></button>
+      </form>
+      <div id="registration-success" class="success-panel" hidden tabindex="-1">
+        <span class="success-mark">✓</span><h3>参加表明を受け付けました！</h3>
+        <p>受付番号は以下のとおりです。編集するときに必要です。</p>
+        <div class="receipt" id="receipt-id"></div>
+        <div class="success-actions"><button type="button" class="outline-button" id="copy-receipt">受付番号をコピー</button><button type="button" class="outline-button" id="new-registration">別の参加表明を登録</button></div>
+      </div>
+    </section>
+    <section class="panel" id="attendees" aria-labelledby="attendees-title">
+      <div class="section-heading"><span class="eyebrow">ATTENDEES</span><h2 id="attendees-title">みんなの参加表明</h2></div>
+      <div class="counts"><div><span>● 参加する</span><strong id="going-count">—</strong></div><div><span>● 興味あり</span><strong id="interested-count">—</strong></div></div>
+      <div class="list-controls"><div class="filters" role="group" aria-label="参加区分で絞り込む"><button class="active" type="button" data-filter="all">すべて</button><button type="button" data-filter="going">参加する</button><button type="button" data-filter="interested">興味あり</button></div><button id="refresh-list" class="refresh-button" type="button">↻ 更新</button></div>
+      <label class="search-label"><span class="visually-hidden">名前・受付番号で検索</span><input id="attendee-search" type="search" placeholder="名前・受付番号で探す"></label>
+      <p id="list-message" class="message" role="status">一覧を読み込んでいます…</p>
+      <div id="attendee-list" class="attendee-list"></div>
+      <p class="privacy-help">参加区分や名前・SNS・ひとことは公開されます。編集には登録時の4桁パスが必要です。</p>
+    </section>
+  </main>
+  <dialog id="edit-dialog" aria-labelledby="edit-title">
+    <form id="edit-form" novalidate>
+      <div class="dialog-header"><div><span class="eyebrow">EDIT REGISTRATION</span><h2 id="edit-title">参加表明を編集</h2></div><button id="close-edit" class="close-button" type="button" aria-label="閉じる">×</button></div>
+      <p class="help">登録時の編集用パスを入力して保存してください。</p>
+      <fieldset class="status-choice"><legend>参加区分 <em>必須</em></legend><div class="segment"><label><input type="radio" name="status" value="going"><span>↗ 参加する</span></label><label><input type="radio" name="status" value="interested"><span>◇ 興味あり</span></label></div></fieldset>
+      <label class="field">名前 <em>必須</em><input name="name" maxlength="40" required></label>
+      <div class="field-pair"><label class="field">X ID <small>任意</small><input name="x" maxlength="16" autocapitalize="off"></label><label class="field">Instagram ID <small>任意</small><input name="instagram" maxlength="31" autocapitalize="off"></label></div>
+      <label class="field">ひとこと <small>任意</small><textarea name="comment" maxlength="120" rows="3"></textarea></label>
+      <label class="field">登録時の編集用パス <em>必須</em><input name="pin" type="password" required maxlength="4" minlength="4" pattern="[0-9]{4}" inputmode="numeric" autocomplete="off" placeholder="半角数字4桁"></label>
+      <p id="edit-message" class="message" role="status" hidden></p>
+      <button id="edit-submit" class="primary-button" type="submit">変更を保存 <span>↗</span></button>
+    </form>
+  </dialog>
+  <footer><a href="./">ANIMAD Vol.9 イベント詳細へ戻る ↗</a></footer>
+</body>
+</html>
