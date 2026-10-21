@@ -8,6 +8,12 @@
   <title>参加表明 | ANIMAD Vol.9</title>
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./rsvp.css">
+  <style>
+    /* Keep important connection errors visible, but avoid duplicating the intro in the normal state. */
+    #connection-status:not(.error){display:none}
+    .section-links{margin:18px 0 16px}
+    .section-links a{display:inline-flex;align-items:center;min-height:44px}
+  </style>
   <script defer src="./rsvp-config.js"></script>
   <script defer src="./rsvp.js"></script>
 </head>
@@ -17,13 +23,7 @@
     <span class="header-wordmark">ANIMAD <small>VOL.9</small></span>
   </header>
   <main class="container" id="main">
-    <div class="intro">
-      <span class="eyebrow">DEC 05, 2026 · SHIBUYA</span>
-      <h1>参加表明</h1>
-      <p>参加表明すると入場料金がお得になります！</p>
-      <div class="prices"><div class="price selected"><span>参加表明あり</span><strong>¥2,500</strong></div><div class="price"><span>参加表明なし</span><strong>¥3,000</strong></div></div>
-    </div>
-    <div class="section-links"><a href="#register">参加表明する ↓</a><a href="#attendees">参加者一覧 ↓</a></div>
+    <div class="section-links"><a href="#attendees">参加者一覧 <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-left:5px"><path d="M12 4v16m-7-7 7 7 7-7"/></svg></a></div>
     <p id="connection-status" class="message" role="status">受付システムを確認しています…</p>
     <section class="panel" id="register" aria-labelledby="register-title">
       <div class="section-heading"><span class="eyebrow">REGISTRATION</span><h2 id="register-title">参加表明する</h2></div>
