@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html lang="ja"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta content="#101012" name="theme-color"/><meta content="ANIMAD Vol.9 — 2026年12月5日（土）渋谷で開催。アニソン中心クラブイベント。出演者・料金・参加表明のご案内。" name="description"/><title>ANIMAD Vol.9 — 2026.12.05</title><link href="./favicon.svg" rel="icon" type="image/svg+xml"/><link href="./styles.css" rel="stylesheet"/><link href="./site-additions.css" rel="stylesheet"/><script defer="True" src="./menu-gallery.js"></script>
+<style>
+/* Artist X links: comfortably tappable, without disturbing the event theme. */
+.lineup-grid.confirmed .artist-info{min-width:0;}
+.lineup-grid.confirmed .artist-x-link{display:inline-flex;align-items:center;gap:.35em;min-height:38px;max-width:100%;margin-top:7px;color:#88e8f8;font-size:clamp(11px,1.2vw,13px);line-height:1.5;font-weight:700;overflow-wrap:anywhere;word-break:break-word;text-decoration:underline;text-decoration-color:#88e8f877;text-underline-offset:3px;}
+.lineup-grid.confirmed .artist-x-link:hover,.lineup-grid.confirmed .artist-x-link:focus-visible{color:#fff;text-decoration-color:currentColor;}
+.lineup-grid.confirmed .artist-x-link span{flex-shrink:0;}
+@media(max-width:720px){.lineup-grid.confirmed .artist-x-link{font-size:12px;min-height:44px;margin-top:3px}.lineup-grid.confirmed .artist-info h3{overflow-wrap:anywhere;}}
+
+/* STAFF: one-person first row like VJ, two people side by side underneath. */
+.lineup-grid.confirmed .staff-first-row,
+.lineup-grid.confirmed .staff-second-row{
+  grid-column:1 / -1;min-width:0;display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));gap:23px;
+}
+@media(max-width:1000px){
+  .lineup-grid.confirmed .staff-first-row,
+  .lineup-grid.confirmed .staff-second-row{gap:16px}
+}
+@media(max-width:720px){
+  .lineup-grid.confirmed .staff-first-row,
+  .lineup-grid.confirmed .staff-second-row{
+    grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;
+  }
+}
+
+/* ANIMAD lineup photo ratio + resident/guest roles. Optimized for mobile. */
+.lineup-grid.confirmed .artist-art{aspect-ratio:4 / 5;height:auto;min-height:0;overflow:hidden;}
+.lineup-grid.confirmed .artist-art.artist-art-has-photo{background:#1b1b20;}
+.lineup-grid.confirmed .artist-art .artist-photo{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;}
+.lineup-grid.confirmed .artist-info .artist-affiliation{display:inline-block;color:#b5b7bf;font-size:clamp(9px,.9vw,11px);line-height:1.4;font-weight:850;letter-spacing:.075em;margin-top:3px;margin-bottom:5px;}
+.lineup-grid.confirmed .artist-info .artist-affiliation.is-resident{color:#72e5fa;}
+@media(max-width:720px){.lineup-grid.confirmed .artist-info .artist-affiliation{font-size:10px;letter-spacing:.025em;margin-top:4px;margin-bottom:5px;}}
+
+/* ANIMAD 2026 / Neon accent: highlighted guest artists, subtle CTA motion. */
+.lineup-grid.confirmed .artist-info .artist-affiliation.is-guest {
+  display:inline-flex;
+  width:fit-content;
+  align-items:center;
+  background:linear-gradient(105deg,#ff4ca3 0%,#ff8bc4 100%);
+  border:1px solid #ff9cce;
+  border-radius:5px;
+  color:#251021;
+  padding:5px 9px;
+  margin-top:5px;
+  margin-bottom:7px;
+  font-size:11px;
+  font-weight:950;
+  line-height:1.25;
+  letter-spacing:.065em;
+  text-shadow:none;
+  box-shadow:0 0 0 1px #ff4da423,0 0 15px #ff4da433;
+}
+.lineup-grid.confirmed .artist-info .artist-affiliation.is-resident {
+  display:inline-flex;
+  width:fit-content;
+  align-items:center;
+  border:1px solid rgba(108,222,244,.52);
+  border-radius:5px;
+  background:rgba(16,97,120,.20);
+  color:#7deafc;
+  padding:5px 9px;
+  margin-top:5px;
+  margin-bottom:7px;
+  font-size:11px;
+  font-weight:900;
+  line-height:1.25;
+  letter-spacing:.045em;
+}
+@media (max-width:720px) {
+  .lineup-grid.confirmed .artist-info .artist-affiliation.is-guest,
+  .lineup-grid.confirmed .artist-info .artist-affiliation.is-resident {
+    font-size:10px;
+    padding:5px 7px;
+    letter-spacing:.015em;
+    max-width:100%;
+  }
+}
+/* Deliberately restrained sheen: primary calls to action only. No JavaScript needed. */
+.hero-main-action, .champagne-reservation-button {
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  transition:transform .22s ease,box-shadow .28s ease,filter .28s ease,border-color .28s ease;
+  will-change:auto;
+}
+.hero-main-action::before,.champagne-reservation-button::before {
+  content:"";
+  position:absolute;
+  pointer-events:none;
+  top:-45%;bottom:-45%;left:-65%;width:38%;
+  transform:skewX(-24deg);
+  background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,.04) 15%,rgba(255,255,255,.28) 52%,transparent 100%);
+  animation:animad-button-sheen 6.4s ease-in-out infinite;
+  z-index:0;
+}
+.hero-main-action {box-shadow:0 0 0 1px rgba(83,223,244,.18),0 5px 22px rgba(12,195,226,.12);animation:animad-cta-breathe 5.6s ease-in-out infinite;}
+.champagne-reservation-button {box-shadow:0 4px 17px rgba(169,97,245,.16);}
+.champagne-reservation-button::before {animation-delay:2.3s;}
+/* Slightly raised price/menu/header links; animation stays keyboard and touch friendly. */
+.nav-join,.price-action,.shisha-price-jump,.hero-sub-action {
+  transition:transform .20s ease,box-shadow .25s ease,color .20s ease,border-color .20s ease,background .20s ease;
+}
+@media (hover:hover) and (pointer:fine){
+  .hero-main-action:hover,.champagne-reservation-button:hover {transform:translateY(-3px);filter:brightness(1.07)}
+  .hero-main-action:hover {box-shadow:0 8px 30px rgba(24,214,242,.36),0 0 16px rgba(24,214,242,.25)}
+  .champagne-reservation-button:hover {box-shadow:0 9px 25px rgba(191,107,247,.34)}
+  .nav-join:hover,.hero-sub-action:hover,.shisha-price-jump:hover {transform:translateY(-2px)}
+  .price-action:hover {transform:translateX(4px)}
+  .artist-art-has-photo .artist-photo{transition:transform .45s cubic-bezier(.2,.6,.2,1)}
+  .artist-card:hover .artist-art-has-photo .artist-photo{transform:scale(1.035)}
+}
+.hero-main-action:active,.champagne-reservation-button:active,
+.nav-join:active,.hero-sub-action:active,.price-action:active,.shisha-price-jump:active{
+  transform:scale(.977);
+}
+@keyframes animad-button-sheen {
+  0%,62%{left:-65%}
+  79%,100%{left:135%}
+}
+@keyframes animad-cta-breathe {
+  0%,100%{box-shadow:0 0 0 1px rgba(83,223,244,.18),0 5px 22px rgba(12,195,226,.12)}
+  50%{box-shadow:0 0 0 1px rgba(83,223,244,.32),0 6px 28px rgba(12,195,226,.26)}
+}
+/* Accessibility: no continuous motion when reduced-motion preference is enabled. */
+@media (prefers-reduced-motion:reduce){
+  .hero-main-action,.champagne-reservation-button {animation:none!important}
+  .hero-main-action::before,.champagne-reservation-button::before {animation:none!important;display:none}
+  .hero-main-action,.champagne-reservation-button,.nav-join,.hero-sub-action,
+  .price-action,.shisha-price-jump,.artist-photo {transition:none!important}
+}
+
+</style>
+</head>
+<body><a class="skip" href="#main">本文へスキップ</a>
+<header class="site-header wrap"><nav aria-label="メインナビゲーション"><a href="#details">イベント詳細</a><a href="#price">料金</a><a href="#lineup">出演者</a><a class="nav-menu-link" href="#menu">シーシャメニュー</a><a class="nav-join" href="./rsvp.html">参加表明 <span aria-hidden="true">↗</span></a></nav></header>
+<main id="main">
+<section aria-labelledby="hero-title" class="hero wrap"><p class="hero-kicker">日常を破壊する──<br/><span>アニソン中心クラブイベント</span></p><h1 id="hero-title"><img alt="ANIMAD アニマッド" class="hero-logo" height="232" src="./assets/animad-logo.png" width="1024"/></h1>
+<div aria-label="イベントへ参加する" class="hero-action-row">
+<a class="hero-main-action" href="./rsvp.html">参加表明する <span aria-hidden="true">↗</span></a>
+<a class="hero-sub-action" href="#price">料金を確認する <span aria-hidden="true">↓</span></a>
+</div></section>
+<div class="ticker genre-ticker" role="group" aria-label="ANIMADの音楽ジャンル">
+  <div class="genre-ticker-desktop"><span>ANISON / JPOP / KPOP / VOCALOID / GAME SONG / VTUBER / INTERNET SONG / ALL GENRES</span></div>
+  <div class="genre-ticker-mobile" aria-hidden="true"><span>ANISON / JPOP / KPOP / VOCALOID</span><span>GAME SONG / VTUBER / INTERNET SONG / ALL GENRES</span></div>
+</div>
+<section aria-labelledby="details-title" class="section wrap event-overview" id="details">
+<div class="section-intro"><span class="section-tag">EVENT INFORMATION</span><h2 id="details-title">イベント詳細</h2></div>
+<div class="overview-grid">
+<div><span class="overview-edition">ANIMAD VOL.9</span><span>開催日</span><strong>2026年12月5日（土）</strong></div>
+<div><span>開催時間</span><strong>15:00〜20:00</strong></div>
+<div class="overview-venue"><span>会場</span><strong>Chill collection 渋谷センター街店</strong><small>東京都渋谷区宇田川町13-11 Kn渋谷1ビル B1F</small><a href="https://chillcollection.net/access/" rel="noopener noreferrer" target="_blank">会場・アクセス ↗</a></div>
+</div>
+</section>
+<section aria-labelledby="price-title" class="section wrap event-prices" id="price">
+<span class="section-tag">ENTRY PRICE</span><h2 id="price-title">参加料金</h2>
+<p class="price-lead">参加表明をしていただくと、参加料金がお得になります！</p>
+<div class="entry-price-grid">
+<article class="entry-price-card featured">
+<span class="price-label">参加表明あり</span><strong class="price-value">¥2,500</strong>
+<a class="price-action" href="./rsvp.html">参加表明はこちら <span aria-hidden="true">↗</span></a>
+</article>
+<article class="entry-price-card"><span class="price-label">参加表明なし</span><strong class="price-value">¥3,000</strong><span class="price-secondary-note">当日参加</span></article>
+</div>
+<a class="shisha-price-jump" href="#menu" aria-label="シーシャ2時間 3,000円。シーシャメニューに移動">
+  <span class="shisha-price-jump-label">シーシャ（2時間）<strong>¥3,000</strong></span>
+  <span class="shisha-price-jump-guide">メニューを見る <span aria-hidden="true">↓</span></span>
+</a>
+<div class="champagne-reservation"><div class="champagne-reservation-copy"><span class="section-tag">CHAMPAGNE RESERVATION</span><h3>シャンパン予約</h3></div><a class="champagne-reservation-button" href="https://forms.gle/1qPFU2diNoy7Vvzq7" rel="noopener noreferrer" target="_blank">シャンパンのご予約はこちら！<span aria-hidden="true"> ↗</span></a></div></section>
+<section aria-labelledby="lineup-title" class="lineup-section" id="lineup"><div class="wrap section"><h2 id="lineup-title">出演者</h2><div class="lineup-grid confirmed" id="lineup-cards"><h3 class="lineup-role">DJ</h3><article class="artist-card"><div aria-hidden="true" class="artist-art pattern-one"><span>⚡︎</span><i>01</i></div><div class="artist-info"><span class="artist-affiliation is-guest">GUEST DJ</span><span class="tiny-label">DJ</span><h3>ぽにょ皇子</h3><a class="artist-x-link" href="https://x.com/Ponyoouji" target="_blank" rel="noopener noreferrer" aria-label="ぽにょ皇子のXプロフィールを開く">X @Ponyoouji <span aria-hidden="true">↗</span></a></div></article><article class="artist-card"><div class="artist-art pattern-two artist-art-has-photo"><img class="artist-photo" src="./artist-risamaru.webp" alt="りさまるの出演者写真" loading="lazy" decoding="async" style="object-position:50% 32%"></div><div class="artist-info"><span class="artist-affiliation is-guest">GUEST DJ</span><span class="tiny-label">DJ</span><h3>りさまる</h3><a class="artist-x-link" href="https://x.com/risa_smash" target="_blank" rel="noopener noreferrer" aria-label="りさまるのXプロフィールを開く">X @risa_smash <span aria-hidden="true">↗</span></a></div></article><article class="artist-card"><div class="artist-art pattern-three artist-art-has-photo"><img class="artist-photo" src="./artist-kamiteyan.webp" alt="かみてゃん。の出演者写真" loading="lazy" decoding="async" style="object-position:50% 26%"></div><div class="artist-info"><span class="artist-affiliation is-guest">GUEST DJ</span><span class="tiny-label">DJ</span><h3>かみてゃん。</h3><a class="artist-x-link" href="https://x.com/mura_teya" target="_blank" rel="noopener noreferrer" aria-label="かみてゃん。のXプロフィールを開く">X @mura_teya <span aria-hidden="true">↗</span></a></div></article><article class="artist-card"><div class="artist-art pattern-one artist-art-has-photo"><img class="artist-photo" src="./artist-kobe.webp" alt="神戸の出演者写真" loading="lazy" decoding="async" style="object-position:50% 28%"></div><div class="artist-info"><span class="artist-affiliation is-guest">GUEST DJ</span><span class="tiny-label">DJ</span><h3>神戸</h3><a class="artist-x-link" href="https://x.com/0989___" target="_blank" rel="noopener noreferrer" aria-label="神戸のXプロフィールを開く">X @0989___ <span aria-hidden="true">↗</span></a></div></article><article class="artist-card"><div aria-hidden="true" class="artist-art pattern-two"><span>⚡︎</span><i>05</i></div><div class="artist-info"><span class="artist-affiliation is-guest">GUEST DJ</span><span class="tiny-label">DJ</span><h3>takumi</h3><a class="artist-x-link" href="https://x.com/xtxxkxxmx" target="_blank" rel="noopener noreferrer" aria-label="takumiのXプロフィールを開く">X @xtxxkxxmx <span aria-hidden="true">↗</span></a></div></article><article class="artist-card"><div class="artist-art pattern-three artist-art-has-photo"><img class="artist-photo" src="./artist-mihashi.webp" alt="MIHASHIの出演者写真" loading="lazy" decoding="async" style="object-position:50% 7%"></div><div class="artist-info"><span class="artist-affiliation is-resident">RESIDENT DJ</span><span class="tiny-label">DJ</span><h3>MIHASHI</h3><a class="artist-x-link" href="https://x.com/t3843" target="_blank" rel="noopener noreferrer" aria-label="MIHASHIのXプロフィールを開く">X @t3843 <span aria-hidden="true">↗</span></a></div></article><article class="artist-card"><div class="artist-art pattern-one artist-art-has-photo"><img class="artist-photo" src="./artist-yoshino.webp" alt="佳乃の出演者写真" loading="lazy" decoding="async" style="object-position:50% 24%"></div><div class="artist-info"><span class="artist-affiliation is-resident">RESIDENT DJ</span><span class="tiny-label">DJ</span><span class="birthday-label">HAPPY BIRTHDAY</span><h3>佳乃</h3><a class="artist-x-link" href="https://x.com/ysn1215ysn" target="_blank" rel="noopener noreferrer" aria-label="佳乃のXプロフィールを開く">X @ysn1215ysn <span aria-hidden="true">↗</span></a></div></article><h3 class="lineup-role">VJ</h3><article class="artist-card"><div aria-hidden="true" class="artist-art pattern-two"><span>⚡︎</span><i>08</i></div><div class="artist-info"><span class="artist-affiliation is-guest">GUEST VJ</span><span class="tiny-label">VJ</span><h3>DAL</h3><a class="artist-x-link" href="https://x.com/Dal_Titor" target="_blank" rel="noopener noreferrer" aria-label="DALのXプロフィールを開く">X @Dal_Titor <span aria-hidden="true">↗</span></a></div></article><h3 class="lineup-role">TEQUILA GIRL</h3><article class="artist-card"><div class="artist-art pattern-three artist-art-has-photo"><img class="artist-photo" src="./artist-genya.webp" alt="GENYA The Notoriousの出演者写真" loading="lazy" decoding="async" style="object-position:50% 34%"></div><div class="artist-info"><span class="tiny-label">TEQUILA GIRL</span><h3>GENYA The Notorious</h3><a class="artist-x-link" href="https://x.com/We_can_Mohican" target="_blank" rel="noopener noreferrer" aria-label="GENYA The NotoriousのXプロフィールを開く">X @We_can_Mohican <span aria-hidden="true">↗</span></a></div></article><article class="artist-card"><div aria-hidden="true" class="artist-art pattern-one"><span>⚡︎</span><i>10</i></div><div class="artist-info"><span class="tiny-label">TEQUILA GIRL</span><span class="birthday-label">HAPPY BIRTHDAY</span><h3>夏城陽詩a.k.aげろちゃん</h3><a class="artist-x-link" href="https://x.com/gereegero2" target="_blank" rel="noopener noreferrer" aria-label="夏城陽詩a.k.aげろちゃんのXプロフィールを開く">X @gereegero2 <span aria-hidden="true">↗</span></a></div></article><div aria-label="HAPPENING BOYとMAD GIRL" class="lineup-side-by-side"><section aria-labelledby="lineup-happening-boy" class="lineup-side-role"><h3 class="lineup-role" id="lineup-happening-boy">HAPPENING BOY</h3><article class="artist-card"><div aria-hidden="true" class="artist-art pattern-two"><span>⚡︎</span><i>11</i></div><div class="artist-info"><span class="tiny-label">HAPPENING BOY</span><h3>妲井准</h3><a class="artist-x-link" href="https://x.com/nugiJun" target="_blank" rel="noopener noreferrer" aria-label="妲井准のXプロフィールを開く">X @nugiJun <span aria-hidden="true">↗</span></a></div></article></section><section aria-labelledby="lineup-mad-girl" class="lineup-side-role"><h3 class="lineup-role" id="lineup-mad-girl">MAD GIRL</h3><article class="artist-card"><div aria-hidden="true" class="artist-art pattern-three"><span>⚡︎</span><i>12</i></div><div class="artist-info"><span class="tiny-label">MAD GIRL</span><h3>がおさま</h3><a class="artist-x-link" href="https://x.com/gaosama_cos" target="_blank" rel="noopener noreferrer" aria-label="がおさまのXプロフィールを開く">X @gaosama_cos <span aria-hidden="true">↗</span></a></div></article></section></div><h3 class="lineup-role">STAFF</h3><div class="staff-first-row"><article class="artist-card"><div class="artist-art pattern-one artist-art-has-photo"><img class="artist-photo" src="./artist-princess-gorilla.webp" alt="プリンセスゴリラの出演者写真" loading="lazy" decoding="async" style="object-position:51% 49%"></div><div class="artist-info"><span class="tiny-label">STAFF</span><h3>プリンセスゴリラ</h3><a class="artist-x-link" href="https://x.com/_princessGORIRA" target="_blank" rel="noopener noreferrer" aria-label="プリンセスゴリラのXプロフィールを開く">X @_princessGORIRA <span aria-hidden="true">↗</span></a></div></article></div><div class="staff-second-row"><article class="artist-card"><div aria-hidden="true" class="artist-art pattern-two"><span>⚡︎</span><i>14</i></div><div class="artist-info"><span class="tiny-label">STAFF</span><h3>ゆん</h3></div></article><article class="artist-card"><div aria-hidden="true" class="artist-art pattern-three"><span>⚡︎</span><i>15</i></div><div class="artist-info"><span class="tiny-label">STAFF</span><h3>泰成</h3></div></article></div><h3 class="lineup-role">ORGANIZER</h3><article class="artist-card"><div class="artist-art pattern-one artist-art-has-photo"><img class="artist-photo" src="./artist-karen.webp" alt="黒跪カレンの出演者写真" loading="lazy" decoding="async" style="object-position:50% 20%"></div><div class="artist-info"><span class="tiny-label">ORGANIZER</span><h3>黒跪カレン</h3><a class="artist-x-link" href="https://x.com/kuroki_karen" target="_blank" rel="noopener noreferrer" aria-label="黒跪カレンのXプロフィールを開く">X @kuroki_karen <span aria-hidden="true">↗</span></a></div></article></div><div class="crew-grid"></div></div></section>
+<section aria-labelledby="menu-title" class="section wrap extra-menu" id="menu">
+<span class="section-tag">FOOD &amp; SHISHA / OPTIONAL</span>
+<h2 id="menu-title">フード・シーシャメニュー</h2>
+<div aria-labelledby="shisha-price-title" class="shisha-compact">
+<div class="shisha-compact-head"><h3 id="shisha-price-title">シーシャ料金</h3><span>OPTIONAL</span></div>
+<dl>
+<div><dt>シーシャ（2時間）</dt><dd>¥3,000</dd></div>
+<div><dt>アイスホース</dt><dd>¥550</dd></div>
+<div><dt>トップ替え</dt><dd>¥2,000</dd></div>
+</dl>
+</div>
+<div class="gallery-block"><div class="gallery-head"><h3>フードメニュー</h3><span>画像を押すと拡大します</span></div>
+<div class="menu-gallery food-gallery">
+<button aria-label="フードメニュー1を拡大" class="menu-image-button" data-caption="フードメニュー 1 / 2" data-full="./assets/menu/food-01.jpg" type="button"><img alt="フードメニュー1ページ目。冷麺、ご飯もの、パスタの一覧" height="1920" loading="lazy" src="./assets/menu/food-01.jpg" width="1080"/><span>フードメニュー 1 <span aria-hidden="true">↗</span></span></button>
+<button aria-label="フードメニュー2を拡大" class="menu-image-button" data-caption="フードメニュー 2 / 2" data-full="./assets/menu/food-02.jpg" type="button"><img alt="フードメニュー2ページ目。おつまみ、汁もの、デザートの一覧" height="1280" loading="lazy" src="./assets/menu/food-02.jpg" width="720"/><span>フードメニュー 2 <span aria-hidden="true">↗</span></span></button>
+</div>
+</div>
+<div class="gallery-block"><div class="gallery-head"><h3>シーシャフレーバー</h3><span>画像を押すと拡大します</span></div>
+<div class="menu-gallery flavor-gallery">
+<button aria-label="フルーツ・ベリー・シトラスフレーバーを拡大" class="menu-image-button" data-caption="Fruit / Berry / Citrus" data-full="./assets/menu/flavor-01.jpg" type="button"><img alt="Fruit、Berry、Citrusフレーバー一覧" height="1280" loading="lazy" src="./assets/menu/flavor-01.jpg" width="720"/><span>Fruit・Berry・Citrus <span aria-hidden="true">↗</span></span></button>
+<button aria-label="ドリンク・スイーツ・ナッツフレーバーを拡大" class="menu-image-button" data-caption="Drink / Sweets / Nuts" data-full="./assets/menu/flavor-02.jpg" type="button"><img alt="Drink、Sweets、Nutsフレーバー一覧" height="1280" loading="lazy" src="./assets/menu/flavor-02.jpg" width="720"/><span>Drink・Sweets・Nuts <span aria-hidden="true">↗</span></span></button>
+<button aria-label="スパイス・フラワー・その他フレーバーを拡大" class="menu-image-button" data-caption="Spice / Flower / Others" data-full="./assets/menu/flavor-03.jpg" type="button"><img alt="Spice、Flower、Othersフレーバー一覧" height="1280" loading="lazy" src="./assets/menu/flavor-03.jpg" width="802"/><span>Spice・Flower・Others <span aria-hidden="true">↗</span></span></button>
+<button aria-label="プレミアムフレーバーを拡大" class="menu-image-button" data-caption="Premium flavor" data-full="./assets/menu/flavor-04.jpg" type="button"><img alt="Premium flavor一覧" height="1280" loading="lazy" src="./assets/menu/flavor-04.jpg" width="916"/><span>Premium <span aria-hidden="true">↗</span></span></button>
+<button aria-label="ダークフレーバー1ページ目を拡大" class="menu-image-button" data-caption="Dark flavor 1 / 2" data-full="./assets/menu/flavor-05.jpg" type="button"><img alt="Dark flavor一覧の前半" height="1280" loading="lazy" src="./assets/menu/flavor-05.jpg" width="742"/><span>Dark 1 / 2 <span aria-hidden="true">↗</span></span></button>
+<button aria-label="ダークフレーバー2ページ目を拡大" class="menu-image-button" data-caption="Dark flavor 2 / 2" data-full="./assets/menu/flavor-06.jpg" type="button"><img alt="Dark flavor一覧の後半" height="1280" loading="lazy" src="./assets/menu/flavor-06.jpg" width="720"/><span>Dark 2 / 2 <span aria-hidden="true">↗</span></span></button>
+</div>
+</div>
+<p class="menu-note">※ シーシャ・飲酒は20歳以上の方に限ります。</p>
+</section>
+<section aria-labelledby="rules-title" class="wrap section event-rules" id="rules"><h2 id="rules-title">注意事項</h2><ul><li>コスプレ / 露出 / 珍装 / ドカ飲み大歓迎！<br/>セクハラや暴力は絶対ダメ！</li><li>更衣室のご用意はございません。お手数ですが、お手洗いでのお着換えが可能なものでご来店くださいませ！</li><li>身分証明書を持参してください。</li><li>飲み物、食べ物のお持ち込みはご遠慮ください。</li><li>貴重品は完全自己管理とさせていただきます。</li><li>飲酒量は自分が楽しめる範囲に留めましょう。</li><li>オタ芸大歓迎！ぶつからないよう、周りに気をつけて楽しんでください！</li><li>DJブース越しの乾杯は絶対NG！<br/>シーシャ台等を含め、店舗機材を破損させた場合、修理費を請求させて頂きます。</li><li>お酒・シーシャの提供は20歳以上の方に限ります。</li></ul></section><section aria-labelledby="join-title" class="join-section" id="join"><div class="wrap section"><h2 id="join-title">参加表明</h2><a class="hero-main-action" href="./rsvp.html" style="display:inline-flex;align-items:center;gap:1rem;min-height:60px;padding:15px 26px;border-radius:9px;text-decoration:none;background:#16cce9;color:#071018;font-weight:900">参加表明・参加者一覧 <span aria-hidden="true">↗</span></a></div></section>
+<dialog aria-label="メニュー画像の拡大表示" class="menu-lightbox" id="menu-lightbox">
+<div class="lightbox-head"><p id="lightbox-caption"></p><button aria-label="画像を閉じる" class="lightbox-close" type="button">閉じる ×</button></div>
+<div class="lightbox-content"><img alt="拡大したメニュー画像" id="lightbox-image"/></div>
+</dialog>
+</main>
+<footer class="wrap footer"><a aria-label="ANIMAD トップ" class="brand" href="#"><img alt="ANIMAD アニマッド" height="232" src="./assets/animad-logo.png" width="1024"/></a></footer>
+<noscript><p class="noscript-note">参加表明ページの利用にはJavaScriptが必要です。</p></noscript>
+</body></html>
