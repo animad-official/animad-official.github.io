@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- ANIMAD-PINK-GUEST-V2-20261021: pink badges and animated CTA -->
 
 <html lang="ja"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta content="#101012" name="theme-color"/><meta content="ANIMAD Vol.9 — 2026年12月5日（土）渋谷で開催。アニソン中心クラブイベント。出演者・料金・参加表明のご案内。" name="description"/><title>ANIMAD Vol.9 — 2026.12.05</title><link href="./favicon.svg" rel="icon" type="image/svg+xml"/><link href="./styles.css" rel="stylesheet"/><link href="./site-additions.css" rel="stylesheet"/><script defer="True" src="./menu-gallery.js"></script>
 <style>
@@ -33,6 +34,105 @@
 .lineup-grid.confirmed .artist-info .artist-affiliation{display:inline-block;color:#b5b7bf;font-size:clamp(9px,.9vw,11px);line-height:1.4;font-weight:850;letter-spacing:.075em;margin-top:3px;margin-bottom:5px;}
 .lineup-grid.confirmed .artist-info .artist-affiliation.is-resident{color:#72e5fa;}
 @media(max-width:720px){.lineup-grid.confirmed .artist-info .artist-affiliation{font-size:10px;letter-spacing:.025em;margin-top:4px;margin-bottom:5px;}}
+
+/* ANIMAD 2026 / Neon accent: highlighted guest artists, subtle CTA motion. */
+.lineup-grid.confirmed .artist-info .artist-affiliation.is-guest {
+  display:inline-flex;
+  width:fit-content;
+  align-items:center;
+  background:linear-gradient(105deg,#ff4ca3 0%,#ff8bc4 100%);
+  border:1px solid #ff9cce;
+  border-radius:5px;
+  color:#251021;
+  padding:5px 9px;
+  margin-top:5px;
+  margin-bottom:7px;
+  font-size:11px;
+  font-weight:950;
+  line-height:1.25;
+  letter-spacing:.065em;
+  text-shadow:none;
+  box-shadow:0 0 0 1px #ff4da423,0 0 15px #ff4da433;
+}
+.lineup-grid.confirmed .artist-info .artist-affiliation.is-resident {
+  display:inline-flex;
+  width:fit-content;
+  align-items:center;
+  border:1px solid rgba(108,222,244,.52);
+  border-radius:5px;
+  background:rgba(16,97,120,.20);
+  color:#7deafc;
+  padding:5px 9px;
+  margin-top:5px;
+  margin-bottom:7px;
+  font-size:11px;
+  font-weight:900;
+  line-height:1.25;
+  letter-spacing:.045em;
+}
+@media (max-width:720px) {
+  .lineup-grid.confirmed .artist-info .artist-affiliation.is-guest,
+  .lineup-grid.confirmed .artist-info .artist-affiliation.is-resident {
+    font-size:10px;
+    padding:5px 7px;
+    letter-spacing:.015em;
+    max-width:100%;
+  }
+}
+/* Deliberately restrained sheen: primary calls to action only. No JavaScript needed. */
+.hero-main-action, .champagne-reservation-button {
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  transition:transform .22s ease,box-shadow .28s ease,filter .28s ease,border-color .28s ease;
+  will-change:auto;
+}
+.hero-main-action::before,.champagne-reservation-button::before {
+  content:"";
+  position:absolute;
+  pointer-events:none;
+  top:-45%;bottom:-45%;left:-65%;width:38%;
+  transform:skewX(-24deg);
+  background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,.04) 15%,rgba(255,255,255,.28) 52%,transparent 100%);
+  animation:animad-button-sheen 6.4s ease-in-out infinite;
+  z-index:0;
+}
+.hero-main-action {box-shadow:0 0 0 1px rgba(83,223,244,.18),0 5px 22px rgba(12,195,226,.12);animation:animad-cta-breathe 5.6s ease-in-out infinite;}
+.champagne-reservation-button {box-shadow:0 4px 17px rgba(169,97,245,.16);}
+.champagne-reservation-button::before {animation-delay:2.3s;}
+/* Slightly raised price/menu/header links; animation stays keyboard and touch friendly. */
+.nav-join,.price-action,.shisha-price-jump,.hero-sub-action {
+  transition:transform .20s ease,box-shadow .25s ease,color .20s ease,border-color .20s ease,background .20s ease;
+}
+@media (hover:hover) and (pointer:fine){
+  .hero-main-action:hover,.champagne-reservation-button:hover {transform:translateY(-3px);filter:brightness(1.07)}
+  .hero-main-action:hover {box-shadow:0 8px 30px rgba(24,214,242,.36),0 0 16px rgba(24,214,242,.25)}
+  .champagne-reservation-button:hover {box-shadow:0 9px 25px rgba(191,107,247,.34)}
+  .nav-join:hover,.hero-sub-action:hover,.shisha-price-jump:hover {transform:translateY(-2px)}
+  .price-action:hover {transform:translateX(4px)}
+  .artist-art-has-photo .artist-photo{transition:transform .45s cubic-bezier(.2,.6,.2,1)}
+  .artist-card:hover .artist-art-has-photo .artist-photo{transform:scale(1.035)}
+}
+.hero-main-action:active,.champagne-reservation-button:active,
+.nav-join:active,.hero-sub-action:active,.price-action:active,.shisha-price-jump:active{
+  transform:scale(.977);
+}
+@keyframes animad-button-sheen {
+  0%,62%{left:-65%}
+  79%,100%{left:135%}
+}
+@keyframes animad-cta-breathe {
+  0%,100%{box-shadow:0 0 0 1px rgba(83,223,244,.18),0 5px 22px rgba(12,195,226,.12)}
+  50%{box-shadow:0 0 0 1px rgba(83,223,244,.32),0 6px 28px rgba(12,195,226,.26)}
+}
+/* Accessibility: no continuous motion when reduced-motion preference is enabled. */
+@media (prefers-reduced-motion:reduce){
+  .hero-main-action,.champagne-reservation-button {animation:none!important}
+  .hero-main-action::before,.champagne-reservation-button::before {animation:none!important;display:none}
+  .hero-main-action,.champagne-reservation-button,.nav-join,.hero-sub-action,
+  .price-action,.shisha-price-jump,.artist-photo {transition:none!important}
+}
+
 </style>
 </head>
 <body><a class="skip" href="#main">本文へスキップ</a>
