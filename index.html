@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<!-- ANIMAD-PINK-GUEST-V2-20261021: pink badges and animated CTA -->
+<!-- ANIMAD-DETAILS-GROUP-20261021: grouped event date/time -->
 
 <html lang="ja"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta content="#101012" name="theme-color"/><meta content="ANIMAD Vol.9 — 2026年12月5日（土）渋谷で開催。アニソン中心クラブイベント。出演者・料金・参加表明のご案内。" name="description"/><title>ANIMAD Vol.9 — 2026.12.05</title><link href="./favicon.svg" rel="icon" type="image/svg+xml"/><link href="./styles.css" rel="stylesheet"/><link href="./site-additions.css" rel="stylesheet"/><script defer="True" src="./menu-gallery.js"></script>
 <style>
@@ -132,6 +134,40 @@
   .price-action,.shisha-price-jump,.artist-photo {transition:none!important}
 }
 
+
+/* ANIMAD event overview: edition, date and time grouped into one card. */
+.event-overview .overview-grid {
+  grid-template-columns:minmax(0,1.38fr) minmax(0,1fr);
+  align-items:stretch;
+}
+.event-overview .overview-schedule-grid {
+  display:grid;
+  grid-template-columns:minmax(0,1.22fr) minmax(0,1fr);
+  gap:16px;
+  margin-top:15px;
+}
+.event-overview .overview-schedule-item {min-width:0;}
+.event-overview .overview-schedule-item > span {
+  display:block;
+  color:#a9a9b0;
+  font-size:11px;
+  margin-bottom:8px;
+}
+.event-overview .overview-schedule-item > strong {
+  display:block;
+  font-size:clamp(15px,1.65vw,20px);
+  line-height:1.5;
+  overflow-wrap:anywhere;
+}
+@media(max-width:720px) {
+  .event-overview .overview-grid {grid-template-columns:1fr;gap:10px;}
+  .event-overview .overview-grid > .overview-venue {grid-column:auto;}
+  .event-overview .overview-schedule-grid {grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:10px;}
+  .event-overview .overview-schedule-item > strong {font-size:clamp(14px,3.75vw,17px);}
+}
+@media(max-width:380px) {
+  .event-overview .overview-schedule-grid {grid-template-columns:1fr;gap:12px;}
+}
 </style>
 </head>
 <body><a class="skip" href="#main">本文へスキップ</a>
@@ -149,8 +185,13 @@
 <section aria-labelledby="details-title" class="section wrap event-overview" id="details">
 <div class="section-intro"><span class="section-tag">EVENT INFORMATION</span><h2 id="details-title">イベント詳細</h2></div>
 <div class="overview-grid">
-<div><span class="overview-edition">ANIMAD VOL.9</span><span>開催日</span><strong>2026年12月5日（土）</strong></div>
-<div><span>開催時間</span><strong>15:00〜20:00</strong></div>
+<div class="overview-schedule">
+  <span class="overview-edition">ANIMAD VOL.9</span>
+  <div class="overview-schedule-grid">
+    <div class="overview-schedule-item"><span>開催日</span><strong>2026年12月5日（土）</strong></div>
+    <div class="overview-schedule-item"><span>開催時間</span><strong>15:00〜20:00</strong></div>
+  </div>
+</div>
 <div class="overview-venue"><span>会場</span><strong>Chill collection 渋谷センター街店</strong><small>東京都渋谷区宇田川町13-11 Kn渋谷1ビル B1F</small><a href="https://chillcollection.net/access/" rel="noopener noreferrer" target="_blank">会場・アクセス ↗</a></div>
 </div>
 </section>
