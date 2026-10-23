@@ -194,6 +194,12 @@
     overflow-wrap:normal;
   }
 }
+
+/* ANIMAD-HERO-WATERMARK-20261023: show the event photo a little more clearly. */
+.hero::before { opacity:.25; }
+@media(max-width:720px) {
+  .hero::before { opacity:.20; }
+}
 </style>
 </head>
 <body><a class="skip" href="#main">本文へスキップ</a>
