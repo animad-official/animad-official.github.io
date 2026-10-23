@@ -13,6 +13,9 @@
     #connection-status:not(.error){display:none}
     .section-links{margin:18px 0 16px}
     .section-links a{display:inline-flex;align-items:center;min-height:44px}
+  
+    /* iPhone: avoid password AutoFill stealing focus after each digit. */
+    input.pin-input {-webkit-text-security:disc; font-variant-numeric:tabular-nums; letter-spacing:.12em;}
   </style>
   <script defer src="./rsvp-config.js"></script>
   <script defer src="./rsvp.js"></script>
@@ -36,7 +39,7 @@
           </div>
         </fieldset>
         <label class="field">名前 <em>必須</em><input name="name" maxlength="40" required placeholder="ニックネーム" autocomplete="nickname"></label>
-        <label class="field">編集用パス（数字4桁） <em>必須</em><input name="pin" required type="password" maxlength="4" minlength="4" inputmode="numeric" pattern="[0-9]{4}" autocomplete="new-password" placeholder="半角数字4桁"></label>
+        <label class="field">編集用パス（数字4桁） <em>必須</em><input name="pin" required type="text" maxlength="4" minlength="4" inputmode="numeric" pattern="[0-9]{4}" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="pin-input" placeholder="半角数字4桁"></label>
         <p class="help">後から登録内容を変更するときに使います。忘れないようにしてください。</p>
         <div class="field-pair"><label class="field">X ID <small>任意</small><input name="x" maxlength="16" autocapitalize="off" spellcheck="false" placeholder="@your_id"></label><label class="field">Instagram ID <small>任意</small><input name="instagram" maxlength="31" autocapitalize="off" spellcheck="false" placeholder="@your_id"></label></div>
         <label class="field">ひとこと <small>任意（120文字以内）</small><textarea name="comment" maxlength="120" rows="3" placeholder="当日の意気込みなど"></textarea></label>
@@ -68,7 +71,7 @@
       <label class="field">名前 <em>必須</em><input name="name" maxlength="40" required></label>
       <div class="field-pair"><label class="field">X ID <small>任意</small><input name="x" maxlength="16" autocapitalize="off"></label><label class="field">Instagram ID <small>任意</small><input name="instagram" maxlength="31" autocapitalize="off"></label></div>
       <label class="field">ひとこと <small>任意</small><textarea name="comment" maxlength="120" rows="3"></textarea></label>
-      <label class="field">登録時の編集用パス <em>必須</em><input name="pin" type="password" required maxlength="4" minlength="4" pattern="[0-9]{4}" inputmode="numeric" autocomplete="off" placeholder="半角数字4桁"></label>
+      <label class="field">登録時の編集用パス <em>必須</em><input name="pin" type="text" required maxlength="4" minlength="4" pattern="[0-9]{4}" inputmode="numeric" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="pin-input" placeholder="半角数字4桁"></label>
       <p id="edit-message" class="message" role="status" hidden></p>
       <button id="edit-submit" class="primary-button" type="submit">変更を保存 <span>↗</span></button>
     </form>
