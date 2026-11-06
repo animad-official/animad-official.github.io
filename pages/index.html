@@ -200,12 +200,37 @@
 @media(max-width:720px) {
   .hero::before { opacity:.20; }
 }
+
+
+/* ANIMAD-SITE-POP-20261106: add playful copy and pop accents while preserving the neon base. */
+.hero-copy{max-width:860px;margin:18px auto 0;text-align:center;font-size:clamp(15px,1.65vw,21px);line-height:1.9;color:#f5f7fb;text-shadow:0 0 10px rgba(0,0,0,.22)}
+.hero-copy .copy-line{display:block}
+.hero-copy .copy-line + .copy-line{margin-top:2px}
+.hero-copy .copy-acid{color:#86ffad}
+.hero-copy .copy-pink{color:#ff72c4}
+.hero-copy .copy-lead{display:block;margin-top:8px;font-size:clamp(18px,2vw,28px);font-weight:900;letter-spacing:.04em;background:linear-gradient(90deg,#ff62bd 0%,#86ffad 52%,#62e7ff 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.closing-copy{padding-top:10px;padding-bottom:14px;text-align:center}
+.closing-copy .closing-line{display:inline-block;padding:12px 18px;border-radius:999px;background:linear-gradient(90deg,rgba(134,255,173,.16),rgba(255,114,196,.18));border:1px solid rgba(132,236,255,.28);box-shadow:0 0 0 1px rgba(255,255,255,.03),0 8px 28px rgba(83,223,244,.10);font-size:clamp(18px,2.1vw,30px);font-weight:900;letter-spacing:.08em;color:#f7fbff}
+.site-header nav a:hover,.site-header nav a:focus-visible{color:#ff8fd1}
+.genre-ticker{background:linear-gradient(90deg,rgba(98,231,255,.13) 0%,rgba(255,114,196,.10) 46%,rgba(134,255,173,.10) 100%)}
+.section-tag{color:#a6ffd6;text-shadow:0 0 10px rgba(134,255,173,.15)}
+.hero-main-action{background:linear-gradient(90deg,#32d8f6 0%,#8dffb9 100%);color:#091018}
+.hero-main-action .an-arrow{color:inherit}
+.hero-sub-action{border-color:rgba(255,114,196,.42);box-shadow:0 0 0 1px rgba(255,114,196,.10) inset,0 5px 20px rgba(255,114,196,.08)}
+.hero-sub-action:hover,.hero-sub-action:focus-visible{border-color:rgba(255,143,209,.8);background:rgba(255,114,196,.08)}
+.entry-price-card.featured{border-color:rgba(134,255,173,.5);box-shadow:0 0 0 1px rgba(134,255,173,.12) inset,0 10px 32px rgba(98,231,255,.09)}
+.entry-price-card .price-label{color:#c9fdf0}
+.lineup-role{color:#ff8fd1}
+.lineup-grid.confirmed .artist-art{border-color:rgba(104,232,255,.52);box-shadow:0 0 0 1px rgba(255,114,196,.06)}
+.footer .brand{display:inline-block}
+@media(max-width:720px){.hero-copy{margin-top:14px;font-size:14px;line-height:1.75}.hero-copy .copy-lead{margin-top:7px;font-size:clamp(17px,5.6vw,22px)}.closing-copy{padding-top:0;padding-bottom:10px}.closing-copy .closing-line{font-size:16px;letter-spacing:.05em;padding:11px 14px}}
+
 </style>
 </head>
 <body><a class="skip" href="#main">本文へスキップ</a>
 <header class="site-header wrap"><nav aria-label="メインナビゲーション"><a href="#details">イベント詳細</a><a href="#price">料金</a><a href="#lineup">出演者</a><a class="nav-menu-link" href="#menu">シーシャメニュー</a><a class="nav-join" href="./rsvp.html">参加表明 <svg class="an-arrow an-arrow-up-right" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7 M8 7h9v9"/></svg></a></nav></header>
 <main id="main">
-<section aria-labelledby="hero-title" class="hero wrap"><p class="hero-kicker">日常を破壊する──<br/><span>アニソン中心クラブイベント</span></p><h1 id="hero-title"><img alt="ANIMAD アニマッド" class="hero-logo" height="232" src="./assets/animad-logo.png" width="1024"/></h1>
+<section aria-labelledby="hero-title" class="hero wrap"><p class="hero-kicker">日常を破壊する──<br/><span>アニソン中心クラブイベント</span></p><h1 id="hero-title"><img alt="ANIMAD アニマッド" class="hero-logo" height="232" src="./assets/animad-logo.png" width="1024"/></h1><div class="hero-copy" aria-label="イベントコンセプト"><span class="copy-line"><span class="copy-acid">破壊あり</span>、脱衣あり、飲酒あり、シーシャあり、何でもあり</span><span class="copy-line">誰でもウェルカムの自由な遊び場</span><strong class="copy-lead">日常破壊系パーティイベント</strong></div>
 <div aria-label="イベントへ参加する" class="hero-action-row">
 <a class="hero-main-action" href="./rsvp.html">参加表明する <svg class="an-arrow an-arrow-up-right" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7 M8 7h9v9"/></svg></a>
 <a class="hero-sub-action" href="#price">料金を確認する <svg class="an-arrow an-arrow-down" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14 M6 13l6 6 6-6"/></svg></a>
@@ -272,11 +297,12 @@
 </div>
 <p class="menu-note">※ シーシャ・飲酒は20歳以上の方に限ります。</p>
 </section>
-<section aria-labelledby="rules-title" class="wrap section event-rules" id="rules"><h2 id="rules-title">注意事項</h2><ul><li>コスプレ / 露出 / 珍装 / ドカ飲み大歓迎！<br/>セクハラや暴力は絶対ダメ！</li><li>更衣室のご用意はございません。お手数ですが、お手洗いでのお着換えが可能なものでご来店くださいませ！</li><li>身分証明書を持参してください。</li><li>飲み物、食べ物のお持ち込みはご遠慮ください。</li><li>貴重品は完全自己管理とさせていただきます。</li><li>飲酒量は自分が楽しめる範囲に留めましょう。</li><li>オタ芸大歓迎！ぶつからないよう、周りに気をつけて楽しんでください！</li><li>DJブース越しの乾杯は絶対NG！<br/>シーシャ台等を含め、店舗機材を破損させた場合、修理費を請求させて頂きます。</li><li>お酒・シーシャの提供は20歳以上の方に限ります。</li></ul></section><section aria-labelledby="join-title" class="join-section" id="join"><div class="wrap section"><h2 id="join-title">参加表明</h2><a class="hero-main-action" href="./rsvp.html" style="display:inline-flex;align-items:center;gap:1rem;min-height:60px;padding:15px 26px;border-radius:9px;text-decoration:none;background:#16cce9;color:#071018;font-weight:900">参加表明・参加者一覧 <svg class="an-arrow an-arrow-up-right" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7 M8 7h9v9"/></svg></a></div></section>
+<section aria-labelledby="rules-title" class="wrap section event-rules" id="rules"><h2 id="rules-title">注意事項</h2><ul><li>コスプレ / 露出 / 珍装 / ドカ飲み大歓迎！<br/>セクハラや暴力は絶対ダメ！</li><li>更衣室のご用意はございません。お手数ですが、お手洗いでのお着換えが可能なものでご来店くださいませ！</li><li>身分証明書を持参してください。</li><li>飲み物、食べ物のお持ち込みはご遠慮ください。</li><li>貴重品は完全自己管理とさせていただきます。</li><li>飲酒量は自分が楽しめる範囲に留めましょう。</li><li>オタ芸大歓迎！ぶつからないよう、周りに気をつけて楽しんでください！</li><li>DJブース越しの乾杯は絶対NG！<br/>シーシャ台等を含め、店舗機材を破損させた場合、修理費を請求させて頂きます。</li><li>お酒・シーシャの提供は20歳以上の方に限ります。</li></ul></section><section aria-labelledby="join-title" class="join-section" id="join"><div class="wrap section"><h2 id="join-title">参加表明</h2><a class="hero-main-action" href="./rsvp.html" style="display:inline-flex;align-items:center;gap:1rem;min-height:60px;padding:15px 26px;border-radius:9px;text-decoration:none;background:linear-gradient(90deg,#32d8f6 0%,#8dffb9 100%);color:#071018;font-weight:900">参加表明・参加者一覧 <svg class="an-arrow an-arrow-up-right" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7 M8 7h9v9"/></svg></a></div></section>
 <dialog aria-label="メニュー画像の拡大表示" class="menu-lightbox" id="menu-lightbox">
 <div class="lightbox-head"><p id="lightbox-caption"></p><button aria-label="画像を閉じる" class="lightbox-close" type="button">閉じる ×</button></div>
 <div class="lightbox-content"><img alt="拡大したメニュー画像" id="lightbox-image"/></div>
 </dialog>
+<section class="wrap closing-copy" aria-label="イベントメッセージ"><p class="closing-line">日常を破壊して、MADな夜を</p></section>
 </main>
 <footer class="wrap footer"><a aria-label="ANIMAD トップ" class="brand" href="#"><img alt="ANIMAD アニマッド" height="232" src="./assets/animad-logo.png" width="1024"/></a></footer>
 <noscript><p class="noscript-note">参加表明ページの利用にはJavaScriptが必要です。</p></noscript>
