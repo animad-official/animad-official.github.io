@@ -196,9 +196,9 @@
 }
 
 /* ANIMAD-HERO-WATERMARK-20261023: show the event photo a little more clearly. */
-.hero::before { opacity:.25; }
+.hero::before { opacity:.46; }
 @media(max-width:720px) {
-  .hero::before { opacity:.20; }
+  .hero::before { opacity:.40; }
 }
 
 
@@ -237,6 +237,10 @@
 .hero .hero-rsvp-unit{font-size:12px;font-weight:700;margin-left:4px;}
 @media(max-width:720px){.hero .hero-rsvp-counts{width:min(100%,360px);margin-top:17px;padding:12px 10px;gap:8px;}.hero .hero-rsvp-label{font-size:12px;}}
 
+
+/* ANIMAD-RULES-20261119: emphasize the two welcome notices. */
+#rules .rules-welcome{display:inline-block;color:#9cff96;font-weight:900;font-size:clamp(16px,1.6vw,20px);line-height:1.55;margin-bottom:4px;overflow-wrap:anywhere;}
+@media(max-width:720px){#rules .rules-welcome{font-size:clamp(16px,4.4vw,18px);}}
 </style>
 </head>
 <body><a class="skip" href="#main">本文へスキップ</a>
@@ -316,7 +320,7 @@
 </div>
 <p class="menu-note">※ シーシャ・飲酒は20歳以上の方に限ります。</p>
 </section>
-<section aria-labelledby="rules-title" class="wrap section event-rules" id="rules"><h2 id="rules-title">注意事項</h2><ul><li>コスプレ / 露出 / 珍装 / ドカ飲み大歓迎！<br/>セクハラや暴力は絶対ダメ！</li><li>更衣室のご用意はございません。お手数ですが、お手洗いでのお着換えが可能なものでご来店くださいませ！</li><li>身分証明書を持参してください。</li><li>飲み物、食べ物のお持ち込みはご遠慮ください。</li><li>貴重品は完全自己管理とさせていただきます。</li><li>飲酒量は自分が楽しめる範囲に留めましょう。</li><li>オタ芸大歓迎！ぶつからないよう、周りに気をつけて楽しんでください！</li><li>DJブース越しの乾杯は絶対NG！<br/>シーシャ台等を含め、店舗機材を破損させた場合、修理費を請求させて頂きます。</li><li>お酒・シーシャの提供は20歳以上の方に限ります。</li></ul></section><section aria-labelledby="join-title" class="join-section" id="join"><div class="wrap section"><h2 id="join-title">参加表明</h2><a class="hero-main-action" href="./rsvp.html" style="display:inline-flex;align-items:center;gap:1rem;min-height:60px;padding:15px 26px;border-radius:9px;text-decoration:none;background:linear-gradient(90deg,#32d8f6 0%,#8dffb9 100%);color:#071018;font-weight:900">参加表明・参加者一覧 <svg class="an-arrow an-arrow-up-right" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7 M8 7h9v9"/></svg></a></div></section>
+<section aria-labelledby="rules-title" class="wrap section event-rules" id="rules"><h2 id="rules-title">注意事項</h2><ul><li><strong class="rules-welcome">セクシーコスプレ / 露出 / 珍装 / ドカ飲み大歓迎！</strong><br/>セクハラや暴力は絶対ダメ！</li><li><strong class="rules-welcome">オタ芸大歓迎！</strong><br/>ぶつからないよう、周りに気をつけて楽しんでください！</li><li>更衣室のご用意はございません。お手数ですが、お手洗いでのお着替えが可能なものでご来店くださいませ！</li><li>身分証明書を持参してください。</li><li>飲み物、食べ物のお持ち込みはご遠慮ください。</li><li>貴重品は完全自己管理とさせていただきます。</li><li>飲酒量は自分が楽しめる範囲に留めましょう！</li><li>DJブース越しの乾杯は絶対NG！<br/>シーシャ台等を含め、店舗機材を破損させた場合、修理費を請求させて頂きます。</li><li>お酒・シーシャの提供は20歳以上の方に限ります。</li></ul></section><section aria-labelledby="join-title" class="join-section" id="join"><div class="wrap section"><h2 id="join-title">参加表明</h2><a class="hero-main-action" href="./rsvp.html" style="display:inline-flex;align-items:center;gap:1rem;min-height:60px;padding:15px 26px;border-radius:9px;text-decoration:none;background:linear-gradient(90deg,#32d8f6 0%,#8dffb9 100%);color:#071018;font-weight:900">参加表明・参加者一覧 <svg class="an-arrow an-arrow-up-right" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7 M8 7h9v9"/></svg></a></div></section>
 <dialog aria-label="メニュー画像の拡大表示" class="menu-lightbox" id="menu-lightbox">
 <div class="lightbox-head"><p id="lightbox-caption"></p><button aria-label="画像を閉じる" class="lightbox-close" type="button">閉じる ×</button></div>
 <div class="lightbox-content"><img alt="拡大したメニュー画像" id="lightbox-image"/></div>
