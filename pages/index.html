@@ -224,12 +224,32 @@
 .footer .brand{display:inline-block}
 @media(max-width:720px){.hero-copy{margin-top:14px;font-size:14px;line-height:1.75}.hero-copy .copy-lead{margin-top:7px;font-size:clamp(17px,5.6vw,22px)}.closing-copy{padding-top:0;padding-bottom:10px}.closing-copy .closing-line{font-size:16px;letter-spacing:.05em;padding:0}}
 
+
+/* ANIMAD-RSVP-COUNTS: compact live counts, independent of registration UI. */
+.hero .hero-rsvp-counts{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:9px;width:min(100%,440px);margin:22px auto 0;padding:13px 16px 15px;border:1px solid #41464e;border-radius:10px;background:rgba(17,19,23,.87);text-align:center;box-sizing:border-box;}
+.hero .hero-rsvp-counts[hidden]{display:none;}
+.hero .hero-rsvp-caption{margin:0;color:#c1c6cf;font-size:10px;font-weight:800;letter-spacing:.16em;line-height:1.4;}
+.hero .hero-rsvp-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%;}
+.hero .hero-rsvp-stat{display:flex;flex-direction:column;align-items:center;gap:1px;min-width:0;color:#99ffb3;}
+.hero .hero-rsvp-stat + .hero-rsvp-stat{border-left:1px solid #41464e;color:#ff8fd1;}
+.hero .hero-rsvp-label{font-size:13px;font-weight:800;line-height:1.5;}
+.hero .hero-rsvp-number{font-size:clamp(27px,3.8vw,38px);line-height:1.15;font-weight:900;font-variant-numeric:tabular-nums;}
+.hero .hero-rsvp-unit{font-size:12px;font-weight:700;margin-left:4px;}
+@media(max-width:720px){.hero .hero-rsvp-counts{width:min(100%,360px);margin-top:17px;padding:12px 10px;gap:8px;}.hero .hero-rsvp-label{font-size:12px;}}
+
 </style>
 </head>
 <body><a class="skip" href="#main">本文へスキップ</a>
 <header class="site-header wrap"><nav aria-label="メインナビゲーション"><a href="#details">イベント詳細</a><a href="#price">料金</a><a href="#lineup">出演者</a><a class="nav-menu-link" href="#menu">シーシャメニュー</a><a class="nav-join" href="./rsvp.html">参加表明 <svg class="an-arrow an-arrow-up-right" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7 M8 7h9v9"/></svg></a></nav></header>
 <main id="main">
 <section aria-labelledby="hero-title" class="hero wrap"><p class="hero-kicker">日常を破壊する──<br/><span>アニソン中心クラブイベント</span></p><h1 id="hero-title"><img alt="ANIMAD アニマッド" class="hero-logo" height="232" src="./assets/animad-logo.png" width="1024"/></h1><div class="hero-copy" aria-label="イベントコンセプト"><span class="copy-line"><span class="copy-acid">破壊あり</span>、脱衣あり、飲酒あり、シーシャあり、何でもあり</span><span class="copy-line">誰でもウェルカムの自由な遊び場</span><strong class="copy-lead">日常破壊系パーティイベント</strong></div>
+<div class="hero-rsvp-counts" id="hero-rsvp-counts" aria-label="現在の参加表明状況" aria-live="polite" aria-atomic="true" hidden>
+  <p class="hero-rsvp-caption">CURRENT RSVP</p>
+  <div class="hero-rsvp-grid">
+    <div class="hero-rsvp-stat"><span class="hero-rsvp-label">参加表明</span><div><strong class="hero-rsvp-number" id="hero-going-count"></strong><span class="hero-rsvp-unit">名</span></div></div>
+    <div class="hero-rsvp-stat"><span class="hero-rsvp-label">興味あり</span><div><strong class="hero-rsvp-number" id="hero-interested-count"></strong><span class="hero-rsvp-unit">名</span></div></div>
+  </div>
+</div>
 <div aria-label="イベントへ参加する" class="hero-action-row">
 <a class="hero-main-action" href="./rsvp.html">参加表明する <svg class="an-arrow an-arrow-up-right" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7 M8 7h9v9"/></svg></a>
 <a class="hero-sub-action" href="#price">料金を確認する <svg class="an-arrow an-arrow-down" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14 M6 13l6 6 6-6"/></svg></a>
@@ -305,4 +325,49 @@
 </main>
 <footer class="wrap footer"><a aria-label="ANIMAD トップ" class="brand" href="#"><img alt="ANIMAD アニマッド" height="232" src="./assets/animad-logo.png" width="1024"/></a></footer>
 <noscript><p class="noscript-note">参加表明ページの利用にはJavaScriptが必要です。</p></noscript>
+<script src="./rsvp-config.js"></script>
+<script>
+(() => {
+  'use strict';
+  const panel = document.getElementById('hero-rsvp-counts');
+  const goingNode = document.getElementById('hero-going-count');
+  const interestedNode = document.getElementById('hero-interested-count');
+  const api = String(window.ANIMAD_RSVP_API || '').replace(/\/$/, '');
+  const safeApi = /^https:\/\/[a-z0-9.-]+\.workers\.dev$/i.test(api) || /^https:\/\/rsvp-api\.[a-z0-9.-]+$/i.test(api);
+  if (!panel || !goingNode || !interestedNode || !safeApi) return;
+  let pending = false;
+  let lastRequest = 0;
+  async function refreshCounts(force = false) {
+    if (pending || (!force && Date.now() - lastRequest < 10000)) return;
+    pending = true;
+    lastRequest = Date.now();
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 12000);
+    try {
+      const response = await fetch(api + '/attendees', {method:'GET', cache:'no-store', signal:controller.signal});
+      if (!response.ok) throw new Error('RSVP unavailable');
+      const result = await response.json();
+      const attendees = result?.data?.attendees;
+      if (!result?.ok || !Array.isArray(attendees)) throw new Error('Invalid RSVP response');
+      let going = 0, interested = 0;
+      for (const attendee of attendees) {
+        if (attendee?.status === 'going') going++;
+        else if (attendee?.status === 'interested') interested++;
+      }
+      goingNode.textContent = String(going);
+      interestedNode.textContent = String(interested);
+      panel.hidden = false;
+    } catch (_) {
+      panel.hidden = true;
+    } finally {
+      clearTimeout(timer);
+      pending = false;
+    }
+  }
+  refreshCounts(true);
+  window.addEventListener('pageshow', event => {if (event.persisted) refreshCounts(true);});
+  document.addEventListener('visibilitychange', () => {if (!document.hidden) refreshCounts();});
+  setInterval(() => {if (!document.hidden) refreshCounts();}, 60000);
+})();
+</script>
 </body></html>
