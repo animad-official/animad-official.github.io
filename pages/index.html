@@ -277,6 +277,45 @@
   .animad-poster-reservation { min-height:52px; margin-top:12px; padding:12px; }
 }
 
+
+/* ANIMAD-DRINK-PAIR-20261127: two poster images side by side on desktop and iPhone. */
+.animad-drink-poster-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  align-items:start;
+  gap:clamp(12px,2.6vw,28px);
+  margin-top:25px;
+}
+.animad-drink-poster-grid .gallery-block,
+.animad-drink-poster-grid .animad-drink-poster,
+.animad-drink-poster-grid .animad-drink-poster + .animad-poster-gallery{
+  min-width:0;max-width:none;margin:0;
+}
+.animad-drink-poster-grid .gallery-head{
+  display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;
+  gap:4px;min-height:65px;margin:0 0 10px;
+}
+.animad-drink-poster-grid .gallery-head h3{font-size:clamp(15px,1.6vw,20px);line-height:1.4;}
+.animad-drink-poster-grid .animad-poster-button{width:100%;max-width:none;box-sizing:border-box;}
+.animad-drink-poster-grid .animad-poster-button img{display:block;width:100%;height:auto;aspect-ratio:1055/1491;object-fit:contain;}
+.animad-drink-poster-grid .animad-poster-reservation{box-sizing:border-box;width:100%;max-width:none;white-space:normal;line-height:1.5;}
+.animad-drink-poster-grid .menu-note{margin-top:12px;line-height:1.5;}
+@media(max-width:720px){
+  .animad-drink-poster-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:18px;}
+  .animad-drink-poster-grid .gallery-head{min-height:52px;justify-content:flex-end;gap:0;margin-bottom:7px;}
+  .animad-drink-poster-grid .gallery-head h3{font-size:clamp(12px,3.4vw,15px);line-height:1.45;overflow-wrap:anywhere;}
+  .animad-drink-poster-grid .gallery-head span{display:none;}
+  .animad-drink-poster-grid .animad-poster-button{padding:5px;}
+  .animad-drink-poster-grid .animad-poster-button>span{font-size:clamp(10px,2.9vw,12px);padding:8px 3px 4px;gap:4px;}
+  .animad-drink-poster-grid .animad-poster-reservation{min-height:48px;margin-top:9px;padding:9px 7px;gap:6px;font-size:clamp(11px,2.95vw,13px);}
+  .animad-drink-poster-grid .animad-poster-reservation .an-arrow{width:14px;height:14px;min-width:14px;}
+  .animad-drink-poster-grid .menu-note{font-size:10px;margin-top:9px;}
+}
+@media(max-width:370px){
+  .animad-drink-poster-grid{gap:7px;}
+  .animad-drink-poster-grid .gallery-head h3{font-size:11px;}
+}
+
 </style>
 </head>
 <body><a class="skip" href="#main">本文へスキップ</a>
@@ -330,6 +369,7 @@
 <section aria-labelledby="drinks-title" class="section wrap extra-menu animad-drinks-section" id="drinks">
   <span class="section-tag">DRINK / CHAMPAGNE &amp; SHOT</span>
   <h2 id="drinks-title">ドリンクメニュー</h2>
+  <div class="animad-drink-poster-grid" aria-label="ドリンクとシャンパン・ショットのメニュー">
   <div class="gallery-block animad-poster-gallery animad-drink-poster">
     <div class="gallery-head"><h3>カクテル・チューハイ・ソフトドリンク</h3><span>画像を押すと拡大します</span></div>
     <button type="button" class="menu-image-button animad-poster-button" data-full="./assets/menu/drink-menu.jpg" data-caption="ドリンクメニュー" aria-label="ドリンクメニューを拡大する">
@@ -345,6 +385,7 @@
     </button>
     <a class="champagne-reservation-button animad-poster-reservation" href="https://forms.gle/b7xAdKNQwHqxkJFHA" target="_blank" rel="noopener noreferrer">🍾 シャンパンのご予約はこちら！ <svg class="an-arrow an-arrow-up-right" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7 M8 7h9v9"/></svg></a>
     <p class="menu-note">※ お酒の提供は20歳以上の方に限ります。</p>
+  </div>
   </div>
 </section>
 <section aria-labelledby="menu-title" class="section wrap extra-menu" id="menu">
