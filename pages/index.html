@@ -243,6 +243,10 @@
 @media(max-width:720px){#rules .rules-welcome{font-size:clamp(16px,4.4vw,18px);}}
 
 /* ANIMAD-DRINK-20261127: drink menu before shisha, full-length readable menu posters. */
+/* ANIMAD-DRINK-UPDATE-20261127: added drink poster; removed duplicate food cards and shisha table. */
+.animad-drink-poster{margin-top:24px;}
+.animad-drink-poster + .animad-poster-gallery{margin-top:28px;}
+
 #drinks { scroll-margin-top:28px; }
 .animad-drinks-section { border-top:1px solid var(--line); padding-bottom:clamp(32px,5vw,58px); }
 .animad-poster-gallery { max-width:590px; }
@@ -326,6 +330,13 @@
 <section aria-labelledby="drinks-title" class="section wrap extra-menu animad-drinks-section" id="drinks">
   <span class="section-tag">DRINK / CHAMPAGNE &amp; SHOT</span>
   <h2 id="drinks-title">ドリンクメニュー</h2>
+  <div class="gallery-block animad-poster-gallery animad-drink-poster">
+    <div class="gallery-head"><h3>カクテル・チューハイ・ソフトドリンク</h3><span>画像を押すと拡大します</span></div>
+    <button type="button" class="menu-image-button animad-poster-button" data-full="./assets/menu/drink-menu.jpg" data-caption="ドリンクメニュー" aria-label="ドリンクメニューを拡大する">
+      <img src="./assets/menu/drink-menu.jpg" width="1055" height="1491" loading="lazy" decoding="async" alt="ドリンクメニュー。カクテル各800円、チューハイ各800円、アサヒビール900円、ソフトドリンク各700円、キャストドリンク1,000円。"/>
+      <span>ドリンクメニュー <svg class="an-arrow an-arrow-up-right" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7 M8 7h9v9"/></svg></span>
+    </button>
+  </div>
   <div class="gallery-block animad-poster-gallery">
     <div class="gallery-head"><h3>シャンパン・ショット</h3><span>画像を押すと拡大します</span></div>
     <button type="button" class="menu-image-button animad-poster-button" data-full="./assets/menu/champagne-shot-menu.jpg" data-caption="シャンパン・ショットメニュー" aria-label="シャンパン・ショットメニューを拡大する">
@@ -339,26 +350,12 @@
 <section aria-labelledby="menu-title" class="section wrap extra-menu" id="menu">
 <span class="section-tag">FOOD &amp; SHISHA / OPTIONAL</span>
 <h2 id="menu-title">フード・シーシャメニュー</h2>
-<div aria-labelledby="shisha-price-title" class="shisha-compact">
-<div class="shisha-compact-head"><h3 id="shisha-price-title">シーシャ料金</h3><span>OPTIONAL</span></div>
-<dl>
-<div><dt>シーシャ（2時間）</dt><dd>¥3,000</dd></div>
-<div><dt>アイスホース</dt><dd>¥550</dd></div>
-<div><dt>トップ替え</dt><dd>¥2,000</dd></div>
-</dl>
-</div>
 <div class="gallery-block animad-poster-gallery animad-food-poster">
   <div class="gallery-head"><h3>フード・シーシャ料金表</h3><span>画像を押すと拡大します</span></div>
   <button type="button" class="menu-image-button animad-poster-button" data-full="./assets/menu/food-shisha-overview.jpg" data-caption="フード・シーシャ料金表" aria-label="フード・シーシャ料金表を拡大する">
     <img src="./assets/menu/food-shisha-overview.jpg" width="1055" height="1491" loading="lazy" decoding="async" alt="FOOD & SHISHAの一覧表。シーシャ料金、冷麺、ご飯もの、パスタ、おつまみ、汁もの、デザートを掲載。"/>
     <span>フード・シーシャ料金表 <svg class="an-arrow an-arrow-up-right" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7 M8 7h9v9"/></svg></span>
   </button>
-</div>
-<div class="gallery-block"><div class="gallery-head"><h3>フードメニュー</h3><span>画像を押すと拡大します</span></div>
-<div class="menu-gallery food-gallery">
-<button aria-label="フードメニュー1を拡大" class="menu-image-button" data-caption="フードメニュー 1 / 2" data-full="./assets/menu/food-01.jpg" type="button"><img alt="フードメニュー1ページ目。冷麺、ご飯もの、パスタの一覧" height="1920" loading="lazy" src="./assets/menu/food-01.jpg" width="1080"/><span>フードメニュー 1 <svg class="an-arrow an-arrow-up-right" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7 M8 7h9v9"/></svg></span></button>
-<button aria-label="フードメニュー2を拡大" class="menu-image-button" data-caption="フードメニュー 2 / 2" data-full="./assets/menu/food-02.jpg" type="button"><img alt="フードメニュー2ページ目。おつまみ、汁もの、デザートの一覧" height="1280" loading="lazy" src="./assets/menu/food-02.jpg" width="720"/><span>フードメニュー 2 <svg class="an-arrow an-arrow-up-right" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7 M8 7h9v9"/></svg></span></button>
-</div>
 </div>
 <div class="gallery-block"><div class="gallery-head"><h3>シーシャフレーバー</h3><span>画像を押すと拡大します</span></div>
 <div class="menu-gallery flavor-gallery">
