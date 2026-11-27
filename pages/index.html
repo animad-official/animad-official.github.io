@@ -316,6 +316,67 @@
   .animad-drink-poster-grid .gallery-head h3{font-size:11px;}
 }
 
+
+/* ANIMAD-VENUE-BACKGROUND-20261127: venue photo behind details, pricing and lineup only. */
+.venue-photo-zone {
+  position:relative;
+  isolation:isolate;
+  background:#121217;
+}
+.venue-photo-zone .venue-photo-layer {
+  position:sticky;
+  top:0;
+  z-index:0;
+  width:100%;
+  height:100vh;
+  height:100svh;
+  margin-bottom:-100vh;
+  margin-bottom:-100svh;
+  pointer-events:none;
+  background-image:
+    linear-gradient(180deg,rgba(11,12,17,.69) 0%,rgba(11,12,17,.77) 100%),
+    url('./assets/venue-floor.webp');
+  background-size:cover;
+  background-position:center center;
+  background-repeat:no-repeat;
+}
+.venue-photo-zone > section {
+  position:relative;
+  z-index:1;
+  background:transparent;
+}
+.venue-photo-zone > .lineup-section {
+  background:transparent;
+}
+.event-overview .overview-schedule-item > .overview-entry-note {
+  display:inline-flex;
+  align-items:center;
+  margin-top:8px;
+  padding:3px 9px;
+  border:1px solid rgba(154,255,180,.45);
+  border-radius:5px;
+  background:rgba(154,255,180,.09);
+  color:#aaffc4;
+  font-size:11px;
+  font-weight:850;
+  letter-spacing:.015em;
+  line-height:1.5;
+  white-space:nowrap;
+}
+@media (max-width:720px) {
+  .venue-photo-zone .venue-photo-layer {
+    background-image:
+      linear-gradient(180deg,rgba(11,12,17,.72),rgba(11,12,17,.80)),
+      url('./assets/venue-floor.webp');
+    background-position:53% center;
+  }
+  .event-overview .overview-schedule-item > .overview-entry-note {
+    font-size:10px;
+    padding:3px 7px;
+    margin-top:7px;
+  }
+}
+
 </style>
 </head>
 <body><a class="skip" href="#main">本文へスキップ</a>
@@ -337,6 +398,8 @@
   <div class="genre-ticker-desktop"><span>ANISON / JPOP / KPOP / VOCALOID / GAME SONG / VTUBER / INTERNET SONG / ALL GENRES</span></div>
   <div class="genre-ticker-mobile" aria-hidden="true"><span>ANISON / JPOP / KPOP / VOCALOID</span><span>GAME SONG / VTUBER / INTERNET SONG / ALL GENRES</span></div>
 </div>
+<div class="venue-photo-zone">
+  <div class="venue-photo-layer" aria-hidden="true"></div>
 <section aria-labelledby="details-title" class="section wrap event-overview" id="details">
 <div class="section-intro"><span class="section-tag">EVENT INFORMATION</span><h2 id="details-title">イベント詳細</h2></div>
 <div class="overview-grid">
@@ -344,7 +407,7 @@
   <span class="overview-edition">ANIMAD VOL.9</span>
   <div class="overview-schedule-grid">
     <div class="overview-schedule-item"><span>開催日</span><strong>2026年12月5日（土）</strong></div>
-    <div class="overview-schedule-item"><span>開催時間</span><strong>15:00〜20:00</strong></div>
+    <div class="overview-schedule-item"><span>開催時間</span><strong>15:00〜20:00</strong><small class="overview-entry-note">途中入退場OK！</small></div>
   </div>
 </div>
 <div class="overview-venue"><span>会場</span><strong>Chill collection 渋谷センター街店</strong><small>東京都渋谷区宇田川町13-11 Kn渋谷1ビル B1F</small><a href="https://chillcollection.net/access/" rel="noopener noreferrer" target="_blank">会場・アクセス <svg class="an-arrow an-arrow-up-right" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7 M8 7h9v9"/></svg></a></div>
@@ -366,6 +429,7 @@
 </a>
 <div class="champagne-reservation"><div class="champagne-reservation-copy"><span class="section-tag">CHAMPAGNE RESERVATION</span><h3>シャンパン予約</h3></div><a class="champagne-reservation-button" href="https://forms.gle/b7xAdKNQwHqxkJFHA" rel="noopener noreferrer" target="_blank">シャンパンのご予約はこちら！<svg class="an-arrow an-arrow-up-right" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7 M8 7h9v9"/></svg></a></div></section>
 <section aria-labelledby="lineup-title" class="lineup-section" id="lineup"><div class="wrap section"><h2 id="lineup-title">出演者</h2><div class="lineup-grid confirmed" id="lineup-cards"><h3 class="lineup-role">DJ</h3><article class="artist-card"><div class="artist-art pattern-one artist-art-has-photo"><img class="artist-photo" src="./artist-ponyo.webp" alt="ぽにょ皇子の出演者写真" loading="lazy" decoding="async" style="object-position:50% 25%"></div><div class="artist-info"><span class="artist-affiliation is-guest">GUEST DJ</span><span class="tiny-label">DJ</span><h3>ぽにょ皇子</h3><a class="artist-x-link" href="https://x.com/Ponyoouji" target="_blank" rel="noopener noreferrer" aria-label="ぽにょ皇子のXプロフィールを開く">X @Ponyoouji <svg class="an-arrow an-arrow-up-right" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7 M8 7h9v9"/></svg></a></div></article><article class="artist-card"><div class="artist-art pattern-two artist-art-has-photo"><img class="artist-photo" src="./artist-risamaru.webp" alt="りさまるの出演者写真" loading="lazy" decoding="async" style="object-position:50% 32%"></div><div class="artist-info"><span class="artist-affiliation is-guest">GUEST DJ</span><span class="tiny-label">DJ</span><h3>りさまる</h3><a class="artist-x-link" href="https://x.com/risa_smash" target="_blank" rel="noopener noreferrer" aria-label="りさまるのXプロフィールを開く">X @risa_smash <svg class="an-arrow an-arrow-up-right" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7 M8 7h9v9"/></svg></a></div></article><article class="artist-card"><div class="artist-art pattern-three artist-art-has-photo"><img class="artist-photo" src="./artist-kamiteyan.webp" alt="かみてゃん。の出演者写真" loading="lazy" decoding="async" style="object-position:50% 26%"></div><div class="artist-info"><span class="artist-affiliation is-guest">GUEST DJ</span><span class="tiny-label">DJ</span><h3>かみてゃん。</h3><a class="artist-x-link" href="https://x.com/mura_teya" target="_blank" rel="noopener noreferrer" aria-label="かみてゃん。のXプロフィールを開く">X @mura_teya <svg class="an-arrow an-arrow-up-right" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7 M8 7h9v9"/></svg></a></div></article><article class="artist-card"><div class="artist-art pattern-one artist-art-has-photo"><img class="artist-photo" src="./artist-kobe.webp" alt="神戸の出演者写真" loading="lazy" decoding="async" style="object-position:50% 28%"></div><div class="artist-info"><span class="artist-affiliation is-guest">GUEST DJ</span><span class="tiny-label">DJ</span><h3>神戸</h3><a class="artist-x-link" href="https://x.com/0989___" target="_blank" rel="noopener noreferrer" aria-label="神戸のXプロフィールを開く">X @0989___ <svg class="an-arrow an-arrow-up-right" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7 M8 7h9v9"/></svg></a></div></article><article class="artist-card"><div class="artist-art pattern-two artist-art-has-photo"><img class="artist-photo" src="./artist-takumi.webp" alt="takumiの出演者写真" loading="lazy" decoding="async" style="object-position:50% 39%"/></div><div class="artist-info"><span class="artist-affiliation is-guest">GUEST DJ</span><span class="tiny-label">DJ</span><h3>takumi</h3><a class="artist-x-link" href="https://x.com/xtxxkxxmx" target="_blank" rel="noopener noreferrer" aria-label="takumiのXプロフィールを開く">X @xtxxkxxmx <svg class="an-arrow an-arrow-up-right" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7 M8 7h9v9"/></svg></a></div></article><article class="artist-card"><div class="artist-art pattern-three artist-art-has-photo"><img class="artist-photo" src="./artist-mihashi.webp" alt="MIHASHIの出演者写真" loading="lazy" decoding="async" style="object-position:50% 7%"></div><div class="artist-info"><span class="artist-affiliation is-resident">RESIDENT DJ</span><span class="tiny-label">DJ</span><h3>MIHASHI</h3><a class="artist-x-link" href="https://x.com/t3843" target="_blank" rel="noopener noreferrer" aria-label="MIHASHIのXプロフィールを開く">X @t3843 <svg class="an-arrow an-arrow-up-right" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7 M8 7h9v9"/></svg></a></div></article><article class="artist-card"><div class="artist-art pattern-one artist-art-has-photo"><img class="artist-photo" src="./artist-yoshino.webp" alt="佳乃の出演者写真" loading="lazy" decoding="async" style="object-position:50% 24%"></div><div class="artist-info"><span class="artist-affiliation is-resident">RESIDENT DJ</span><span class="tiny-label">DJ</span><span class="birthday-label">HAPPY BIRTHDAY</span><h3>佳乃</h3><a class="artist-x-link" href="https://x.com/ysn1215ysn" target="_blank" rel="noopener noreferrer" aria-label="佳乃のXプロフィールを開く">X @ysn1215ysn <svg class="an-arrow an-arrow-up-right" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7 M8 7h9v9"/></svg></a></div></article><h3 class="lineup-role">VJ</h3><article class="artist-card"><div class="artist-art pattern-two artist-art-has-photo"><img class="artist-photo" src="./artist-dal.webp" alt="DALの出演者写真" loading="lazy" decoding="async" style="object-position:50% 45%"></div><div class="artist-info"><span class="artist-affiliation is-guest">GUEST VJ</span><span class="tiny-label">VJ</span><h3>DAL</h3><a class="artist-x-link" href="https://x.com/Dal_Titor" target="_blank" rel="noopener noreferrer" aria-label="DALのXプロフィールを開く">X @Dal_Titor <svg class="an-arrow an-arrow-up-right" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7 M8 7h9v9"/></svg></a></div></article><h3 class="lineup-role">TEQUILA GIRL</h3><article class="artist-card"><div class="artist-art pattern-three artist-art-has-photo"><img class="artist-photo" src="./artist-genya.webp" alt="GENYA The Notoriousの出演者写真" loading="lazy" decoding="async" style="object-position:50% 34%"></div><div class="artist-info"><span class="tiny-label">TEQUILA GIRL</span><h3>GENYA The Notorious</h3><a class="artist-x-link" href="https://x.com/We_can_Mohican" target="_blank" rel="noopener noreferrer" aria-label="GENYA The NotoriousのXプロフィールを開く">X @We_can_Mohican <svg class="an-arrow an-arrow-up-right" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7 M8 7h9v9"/></svg></a></div></article><article class="artist-card"><div aria-hidden="true" class="artist-art pattern-one artist-art-has-photo"><img class="artist-photo" src="./artist-gerochan.webp" alt="" loading="lazy" decoding="async" style="object-position:50% 35%"/></div><div class="artist-info"><span class="tiny-label">TEQUILA GIRL</span><span class="birthday-label">HAPPY BIRTHDAY</span><h3 class="artist-name-gerochan">夏城 陽詩a.k.aげろちゃん</h3><a class="artist-x-link" href="https://x.com/gereegero2" target="_blank" rel="noopener noreferrer" aria-label="夏城 陽詩a.k.aげろちゃんのXプロフィールを開く">X @gereegero2 <svg class="an-arrow an-arrow-up-right" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7 M8 7h9v9"/></svg></a></div></article><div aria-label="HAPPENING BOYとMAD GIRL" class="lineup-side-by-side"><section aria-labelledby="lineup-happening-boy" class="lineup-side-role"><h3 class="lineup-role" id="lineup-happening-boy">HAPPENING BOY</h3><article class="artist-card"><div class="artist-art pattern-two artist-art-has-photo"><img class="artist-photo" src="./artist-nugijun.webp" alt="妲井 准の出演者写真" loading="lazy" decoding="async" style="object-position:50% 34%"/></div><div class="artist-info"><span class="tiny-label">HAPPENING BOY</span><h3>妲井 准</h3><a class="artist-x-link" href="https://x.com/nugiJun" target="_blank" rel="noopener noreferrer" aria-label="妲井 准のXプロフィールを開く">X @nugiJun <svg class="an-arrow an-arrow-up-right" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7 M8 7h9v9"/></svg></a></div></article></section><section aria-labelledby="lineup-mad-girl" class="lineup-side-role"><h3 class="lineup-role" id="lineup-mad-girl">MAD GIRL</h3><article class="artist-card"><div class="artist-art pattern-three artist-art-has-photo"><img class="artist-photo" src="./artist-gaosama.webp" alt="がおさまの出演者写真" loading="lazy" decoding="async" style="object-position:50% 29%"/></div><div class="artist-info"><span class="tiny-label">MAD GIRL</span><h3>がおさま</h3><a class="artist-x-link" href="https://x.com/gaosama_cos" target="_blank" rel="noopener noreferrer" aria-label="がおさまのXプロフィールを開く">X @gaosama_cos <svg class="an-arrow an-arrow-up-right" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7 M8 7h9v9"/></svg></a></div></article></section></div><h3 class="lineup-role">DOOR STAFF</h3><div class="staff-first-row"><article class="artist-card"><div class="artist-art pattern-one artist-art-has-photo"><img class="artist-photo" src="./artist-princess-gorilla.webp" alt="プリンセスゴリラの出演者写真" loading="lazy" decoding="async" style="object-position:51% 49%"></div><div class="artist-info"><span class="tiny-label">DOOR STAFF</span><h3>プリンセスゴリラ</h3><a class="artist-x-link" href="https://x.com/_princessGORIRA" target="_blank" rel="noopener noreferrer" aria-label="プリンセスゴリラのXプロフィールを開く">X @_princessGORIRA <svg class="an-arrow an-arrow-up-right" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7 M8 7h9v9"/></svg></a></div></article></div><h3 class="lineup-role">BAR STAFF</h3><div class="staff-second-row"><article class="artist-card"><div class="artist-art pattern-two artist-art-has-photo"><img class="artist-photo" src="./artist-yun.webp" alt="ゆんの出演者写真" loading="lazy" decoding="async" style="object-position:50% 36%"/></div><div class="artist-info"><span class="tiny-label">BAR STAFF</span><h3>ゆん</h3><a class="artist-x-link" href="https://x.com/yun_dayoiii" target="_blank" rel="noopener noreferrer" aria-label="ゆんのXプロフィールを開く">X @yun_dayoiii <svg class="an-arrow an-arrow-up-right" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7 M8 7h9v9"/></svg></a></div></article><article class="artist-card"><div class="artist-art pattern-three artist-art-has-photo"><img class="artist-photo" src="./artist-taisei.webp" alt="泰成の出演者写真" loading="lazy" decoding="async" style="object-position:50% 23%"></div><div class="artist-info"><span class="tiny-label">BAR STAFF</span><h3>泰成</h3><a class="artist-x-link" href="https://x.com/taisei_hachito" target="_blank" rel="noopener noreferrer" aria-label="泰成のXプロフィールを開く">X @taisei_hachito <svg class="an-arrow an-arrow-up-right" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7 M8 7h9v9"/></svg></a></div></article></div><h3 class="lineup-role">ORGANIZER</h3><article class="artist-card"><div class="artist-art pattern-one artist-art-has-photo"><img class="artist-photo" src="./artist-karen.webp" alt="黒跪カレンの出演者写真" loading="lazy" decoding="async" style="object-position:50% 20%"></div><div class="artist-info"><span class="tiny-label">ORGANIZER</span><h3>黒跪カレン</h3><a class="artist-x-link" href="https://x.com/kuroki_karen" target="_blank" rel="noopener noreferrer" aria-label="黒跪カレンのXプロフィールを開く">X @kuroki_karen <svg class="an-arrow an-arrow-up-right" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7 M8 7h9v9"/></svg></a></div></article></div><div class="crew-grid"></div></div></section>
+</div><!-- end venue-photo-zone: only details, prices and lineup -->
 <section aria-labelledby="drinks-title" class="section wrap extra-menu animad-drinks-section" id="drinks">
   <span class="section-tag">DRINK / CHAMPAGNE &amp; SHOT</span>
   <h2 id="drinks-title">ドリンクメニュー</h2>
